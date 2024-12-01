@@ -1,11 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { api } from "../../../api/api";
-import { AxiosError, HttpStatusCode } from "axios";
-import i18n from "../../../localization/i18n";
 import {
   ReservationResponse,
   ReservationUpdateRequest,
 } from "../../../types/Reservation";
+import handleThunkError from "../../../utils/thunk/handleThunkError";
 
 const updateReservationThunk = createAsyncThunk<
   ReservationResponse,
@@ -22,14 +21,7 @@ const updateReservationThunk = createAsyncThunk<
 
       return response.data;
     } catch (error) {
-      if (error instanceof AxiosError && error.response) {
-        if (error.status === HttpStatusCode.TooManyRequests) {
-          return rejectWithValue(error.response?.data);
-        }
-        return rejectWithValue(error.response.data?.details.join(", "));
-      }
-
-      return rejectWithValue(i18n.t("apiErrors.unknownError"));
+      return rejectWithValue(handleThunkError(error));
     }
   }
 );

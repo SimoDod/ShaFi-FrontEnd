@@ -15,12 +15,17 @@ import { useAppDispatch, useAppSelector } from "../../../store/store";
 import createLedgerThunk from "../../../store/thunks/ledger/createLedgerThunk";
 import fetchLedgersByYearThunk from "../../../store/thunks/ledger/fetchLedgersByYearThunk";
 import { useEffect } from "react";
+import CreateExpenseForm from "../../forms/CreateExpenseForm/CreateExpenseForm";
+import ExpensesTable from "../../ExpensesTable/ExpensesTable";
+import { setCurrLedgerById } from "../../../store/slices/ledgerSlice";
 
 const LedgersPage = () => {
   const { t } = useTranslation();
   const { year, ledgerId } = useParams();
   const dispatch = useAppDispatch();
-  const ledgers = useAppSelector((state) => state.ledger.ledgers);
+  const { ledgers, curLedger, isLoading } = useAppSelector(
+    (state) => state.ledger
+  );
   const userId = useAppSelector((state) => state.auth.user._id);
   const navigate = useNavigate();
   const { goToPreviousYear, goToNextYear } = useYearNavigation(
@@ -42,11 +47,21 @@ const LedgersPage = () => {
     }
   }, [dispatch, year]);
 
+  useEffect(() => {
+    if (ledgerId && !isLoading) {
+      dispatch(setCurrLedgerById(ledgerId));
+    }
+  }, [dispatch, isLoading, ledgerId]);
+
   return (
     <>
       {ledgerId && ledgerId !== LedgerModal.CREATE && (
-        <Modal onClose={() => navigate(`${routePaths.ledgers.path}${year}`)}>
-          Ledger table
+        <Modal
+          title={curLedger?.title}
+          onClose={() => navigate(`${routePaths.ledgers.path}${year}`)}
+        >
+          <ExpensesTable expenses={curLedger?.expenses} ledgerId={ledgerId} />
+          <CreateExpenseForm ledgerId={ledgerId} isLoading={isLoading} />
         </Modal>
       )}
       {ledgerId === LedgerModal.CREATE && (
@@ -54,13 +69,15 @@ const LedgersPage = () => {
           onClose={() => navigate(`${routePaths.ledgers.path}${year}`)}
           title={t("ledgersPage.createNewLedger")}
         >
-          <CreateLedgerForm onSubmit={handleCreateLedgerSubmit} />
+          <CreateLedgerForm
+            onSubmit={handleCreateLedgerSubmit}
+            isLoading={isLoading}
+          />
         </Modal>
       )}
       <div className="mr-2 ml-2 2xl:pr-40 2xl:pl-40">
         <WindowCard
           contentClass="flex flex-wrap justify-evenly"
-          isLoading={false}
           heading={
             <h2 className="text text-2xl text-primary">
               {t("ledgersPage.ledgers")}
@@ -78,6 +95,7 @@ const LedgersPage = () => {
           {ledgers.map(({ color, _id, title, total }) => (
             <LedgerTile
               key={_id}
+              id={_id}
               color={color}
               onClick={() =>
                 navigate(`${routePaths.ledgers.path}${year}/${_id}`)

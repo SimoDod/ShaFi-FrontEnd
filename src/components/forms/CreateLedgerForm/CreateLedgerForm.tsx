@@ -30,15 +30,8 @@ const CreateLedgerForm = ({ isLoading = false, onSubmit }: Props) => {
       >
         {({ values, isValid, dirty }) => (
           <Form>
-            <div className="sticky top-2 z-10 flex justify-center">
-              {isLoading ? (
-                <progress className="progress w-56" />
-              ) : (
-                <div className="h-2" />
-              )}
-            </div>
             <FormikField name="title" label={t("common.title")} />
-            <FormikField name="color" as="select">
+            <FormikField name="color" label={t("common.title")} as="select">
               <option value="" disabled>
                 {t("ledgersPage.selectLedgerColor")}
               </option>
@@ -50,10 +43,13 @@ const CreateLedgerForm = ({ isLoading = false, onSubmit }: Props) => {
             </FormikField>
             <div className={`divider divider-${values.color} mt-8`}>
               {t("common.total")}
+              {values.color}
             </div>
             <ButtonLoader
               type="submit"
-              className={`btn-primary mt-4 w-full ${(!isValid || !dirty) && "btn-disabled"}`}
+              className={"btn-primary mt-4 w-full"}
+              disabled={!isValid || !dirty || isLoading}
+              isLoading={isLoading}
             >
               {t("buttons.create")}
             </ButtonLoader>

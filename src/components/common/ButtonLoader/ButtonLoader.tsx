@@ -5,6 +5,7 @@ import clsx from "clsx";
 
 type Props = {
   isLoading?: boolean;
+  disabled?: boolean;
   className?: string;
   icon?: IconDefinition;
   type?: "submit" | "button";
@@ -13,6 +14,7 @@ type Props = {
 
 const ButtonLoader = ({
   isLoading = false,
+  disabled = false,
   className,
   icon,
   children,
@@ -21,7 +23,7 @@ const ButtonLoader = ({
 }: Props) => {
   return (
     <button
-      disabled={isLoading}
+      disabled={disabled}
       className={clsx("btn", className)}
       type={type}
       onClick={onClick}

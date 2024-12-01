@@ -1,8 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { User } from "../../../types/User";
 import { api } from "../../../api/api";
-import { AxiosError } from "axios";
-import i18n from "../../../localization/i18n";
+import handleThunkError from "../../../utils/thunk/handleThunkError";
 
 export const fetchUserThunk = createAsyncThunk<
   User,
@@ -14,10 +13,6 @@ export const fetchUserThunk = createAsyncThunk<
 
     return response.data;
   } catch (error) {
-    if (error instanceof AxiosError && error.response) {
-      return rejectWithValue(error.response.data?.message);
-    }
-
-    return rejectWithValue(i18n.t("apiErrors.unknownError"));
+    return rejectWithValue(handleThunkError(error));
   }
 });

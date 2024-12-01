@@ -9,6 +9,9 @@ import fetchLedgersByYearThunk from "../thunks/ledger/fetchLedgersByYearThunk";
 import updateReservationThunk from "../thunks/reservation/updateReservationThunk";
 import deleteReservationThunk from "../thunks/reservation/deleteReservationThunk";
 import fetchAllReservationDatesThunk from "../thunks/reservation/fetchAllReservationDatesThunk";
+import deleteLedgerThunk from "../thunks/ledger/deleteLedgerThunk";
+import addExpenseThunk from "../thunks/ledger/addExpenseThunk";
+import deleteExpenseThunk from "../thunks/ledger/deleteExpenseThunk";
 
 type NotificationState = {
   message: string;
@@ -40,9 +43,12 @@ const notificationSlice = createSlice({
         updateReservationThunk.rejected,
         deleteReservationThunk.rejected,
         fetchLedgersByYearThunk.rejected,
-        fetchReservationByYearThunk.rejected
+        fetchReservationByYearThunk.rejected,
+        deleteLedgerThunk.rejected,
+        addExpenseThunk.rejected,
+        deleteExpenseThunk.rejected
       ),
-      (state, action) => {        
+      (state, action) => {
         state.message = action.payload || "An unknown error occurred";
       }
     );

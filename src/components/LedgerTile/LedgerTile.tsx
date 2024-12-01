@@ -1,19 +1,32 @@
 import { useTranslation } from "react-i18next";
 import LedgerTileWrapper from "./LedgerTileWrapper/LedgerTileWrapper";
 import { ledgerColors } from "../../utils/constants";
+import { useAppDispatch } from "../../store/store";
+import deleteLedgerThunk from "../../store/thunks/ledger/deleteLedgerThunk";
+import useDialog from "../../hooks/useDialog";
 
 type Props = {
   title: string;
   total: string | number;
   color: (typeof ledgerColors)[number] | "";
+  id: string;
   onClick: () => void;
 };
 
-const LedgerTile = ({ title, total, onClick, color = "accent" }: Props) => {
+const LedgerTile = ({ title, total, id, color = "accent", onClick }: Props) => {
   const { t } = useTranslation();
+  const dispatch = useAppDispatch();
+  const openDialog = useDialog();
 
   return (
-    <LedgerTileWrapper onClick={onClick}>
+    <LedgerTileWrapper
+      onClick={onClick}
+      onDelete={() =>
+        openDialog("delete", {
+          onConfirm: () => dispatch(deleteLedgerThunk(id)),
+        })
+      }
+    >
       <h2 className="card-title text-primary text-lg">{title}</h2>
       <div className={`divider divider-${color} text-lg`}>
         {t("common.total")}

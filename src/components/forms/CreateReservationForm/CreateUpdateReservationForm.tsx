@@ -32,7 +32,7 @@ const CreateUpdateReservationForm = ({
   const { t } = useTranslation();
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center min-w-64">
       <Formik
         initialValues={reservation ? reservation : initialValues}
         onSubmit={onSubmit}
@@ -47,13 +47,6 @@ const CreateUpdateReservationForm = ({
       >
         {({ values, isValid, dirty, setFieldValue }) => (
           <Form className="flex flex-col gap-2">
-            <div className="sticky top-2 z-10 flex justify-center">
-              {isLoading ? (
-                <progress className="progress w-56" />
-              ) : (
-                <div className="h-2" />
-              )}
-            </div>
             <FormikField name="note" as="textarea" label={t("common.note")} />
             <FormikField name="paid" type="number" label={t("common.paid")} />
             <DateRangePicker
@@ -72,7 +65,9 @@ const CreateUpdateReservationForm = ({
             />
             <ButtonLoader
               type="submit"
-              className={`btn-primary mt-4 w-full ${(!isValid || !dirty) && "btn-disabled"}`}
+              className={"btn-primary mt-4 w-full"}
+              disabled={!isValid || !dirty || isLoading}
+              isLoading={isLoading}
             >
               {submitButtonName}
             </ButtonLoader>

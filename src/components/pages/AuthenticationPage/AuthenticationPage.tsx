@@ -55,6 +55,7 @@ const AuthenticationPage = () => {
                   type="submit"
                   className="btn-primary"
                   isLoading={isLoading}
+                  disabled={isLoading}
                 >
                   {t(`${authMode}.keyWord`)}
                 </ButtonLoader>

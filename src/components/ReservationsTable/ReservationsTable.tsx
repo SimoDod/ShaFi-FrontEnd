@@ -6,7 +6,6 @@ import { dateFormats } from "../../utils/date/formatDateToString";
 import { useAppDispatch } from "../../store/store";
 import deleteReservationThunk from "../../store/thunks/reservation/deleteReservationThunk";
 import useDialog from "../../hooks/useDialog";
-import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 import { routePaths } from "../../routerConfig";
 
@@ -15,7 +14,6 @@ type Props = {
 };
 
 const ReservationsTable = ({ reservations }: Props) => {
-  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const openDialog = useDialog();
   const navigate = useNavigate();
@@ -69,11 +67,6 @@ const ReservationsTable = ({ reservations }: Props) => {
                     onClick={() =>
                       openDialog("delete", {
                         onConfirm: () => dispatch(deleteReservationThunk(_id)),
-                        content: (
-                          <h2 className="text-lg semibold">
-                            {t("dialog.confirmDelete")}
-                          </h2>
-                        ),
                       })
                     }
                   >

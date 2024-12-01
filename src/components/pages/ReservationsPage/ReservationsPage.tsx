@@ -27,7 +27,7 @@ const ReservationsPage = () => {
   const { t } = useTranslation();
   const { year, reservationId } = useParams();
   const dispatch = useAppDispatch();
-  const { reservations, reservedDates, reservedDatesWithExclusion } =
+  const { reservations, reservedDates, reservedDatesWithExclusion, isLoading } =
     useAppSelector((state) => state.reservation);
   const userId = useAppSelector((state) => state.auth.user._id);
   const navigate = useNavigate();
@@ -80,6 +80,7 @@ const ReservationsPage = () => {
             reservation={reservations.find(({ _id }) => _id === reservationId)}
             reservedDates={reservedDatesWithExclusion}
             submitButtonName={t("buttons.edit")}
+            isLoading={isLoading}
           />
         </Modal>
       )}
@@ -92,12 +93,12 @@ const ReservationsPage = () => {
             onSubmit={handleSubmit}
             reservedDates={reservedDates}
             submitButtonName={t("buttons.create")}
+            isLoading={isLoading}
           />
         </Modal>
       )}
       <div className="mr-2 ml-2 2xl:pr-40 2xl:pl-40">
         <WindowCard
-          isLoading={false}
           heading={
             <h2 className="text text-2xl text-primary">
               {t("reservationsPage.reservations")}

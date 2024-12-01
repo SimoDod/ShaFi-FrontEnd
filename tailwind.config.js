@@ -33,4 +33,14 @@ export default {
   daisyui: {
     themes: ["light", "dark", "cupcake", "night", "dim", "lemonade"],
   },
+  safelist: [
+    "divider-default",
+    "divider-primary",
+    "divider-secondary",
+    "divider-accent",
+    "divider-success",
+    "divider-warning",
+    "divider-info",
+    "divider-error",
+  ],
 };

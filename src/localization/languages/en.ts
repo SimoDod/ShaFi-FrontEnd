@@ -31,6 +31,7 @@ export const en = {
       title: "Title",
       note: "Note",
       paid: "Paid",
+      amount: "Amount",
     },
     navMenu: {
       dashboard: "Dashboard",
@@ -91,6 +92,7 @@ export const en = {
       ledgers: "Ledgers",
       createNewLedger: "Create new Ledger",
       selectLedgerColor: "Pick a ledger color",
+      expenses: "Expenses",
     },
     reservationsPage: {
       reservations: "Reservations",
