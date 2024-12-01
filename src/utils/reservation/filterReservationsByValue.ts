@@ -7,7 +7,9 @@ const filterReservationsByValue = (
   reservations: ReservationResponse[]
 ) =>
   reservations.filter((reservation) => {
-    const matchesNote = reservation.note.includes(value);
+    const matchesNote = reservation.note
+      .toLowerCase()
+      .includes(value.toLowerCase());
     const matchesPaid = reservation.paid.toString().includes(value);
     const matchesDate = reservation.reservationDate.some((date) => {
       const formattedDate = format(parseISO(date), dateFormats.defaultLine);

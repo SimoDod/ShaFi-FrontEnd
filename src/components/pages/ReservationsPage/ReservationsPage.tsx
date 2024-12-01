@@ -14,7 +14,7 @@ import {
   BaseReservationValues,
   ReservationModal,
 } from "../../../types/Reservation";
-import CreateReservationForm from "../../forms/CreateReservationForm/CreateReservationForm";
+import CreateUpdateReservationForm from "../../forms/CreateReservationForm/CreateUpdateReservationForm";
 import createReservationThunk from "../../../store/thunks/reservation/createReservationThunk";
 import { useEffect, useState } from "react";
 import fetchReservationByYearThunk from "../../../store/thunks/reservation/fetchReservationByYearThunk";
@@ -75,10 +75,11 @@ const ReservationsPage = () => {
           onClose={() => navigate(`${routePaths.reservations.path}${year}`)}
           title={t("reservationsPage.editReservation")}
         >
-          <CreateReservationForm
+          <CreateUpdateReservationForm
             onSubmit={handleSubmit}
             reservation={reservations.find(({ _id }) => _id === reservationId)}
             reservedDates={reservedDatesWithExclusion}
+            submitButtonName={t("buttons.edit")}
           />
         </Modal>
       )}
@@ -87,13 +88,14 @@ const ReservationsPage = () => {
           onClose={() => navigate(`${routePaths.reservations.path}${year}`)}
           title={t("reservationsPage.createNewReservation")}
         >
-          <CreateReservationForm
+          <CreateUpdateReservationForm
             onSubmit={handleSubmit}
             reservedDates={reservedDates}
+            submitButtonName={t("buttons.create")}
           />
         </Modal>
       )}
-      <div className="2xl:pr-40 2xl:pl-40">
+      <div className="mr-2 ml-2 2xl:pr-40 2xl:pl-40">
         <WindowCard
           isLoading={false}
           heading={

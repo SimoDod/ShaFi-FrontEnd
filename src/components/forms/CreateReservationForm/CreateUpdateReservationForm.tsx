@@ -12,6 +12,7 @@ type Props = {
   reservedDates?: string[];
   isLoading?: boolean;
   reservation?: BaseReservationValues;
+  submitButtonName: string;
   onSubmit: (values: BaseReservationValues) => void;
 };
 
@@ -21,10 +22,11 @@ const initialValues: BaseReservationValues = {
   paid: 0,
 };
 
-const CreateReservationForm = ({
+const CreateUpdateReservationForm = ({
   isLoading = false,
   reservedDates = [],
   reservation,
+  submitButtonName,
   onSubmit,
 }: Props) => {
   const { t } = useTranslation();
@@ -72,7 +74,7 @@ const CreateReservationForm = ({
               type="submit"
               className={`btn-primary mt-4 w-full ${(!isValid || !dirty) && "btn-disabled"}`}
             >
-              {t("buttons.create")}
+              {submitButtonName}
             </ButtonLoader>
           </Form>
         )}
@@ -81,4 +83,4 @@ const CreateReservationForm = ({
   );
 };
 
-export default CreateReservationForm;
+export default CreateUpdateReservationForm;
