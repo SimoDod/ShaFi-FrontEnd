@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { api } from "../../api/api";
 import useNotification from "../../hooks/useNotification";
+import { useTranslation } from "react-i18next";
 
 type Balance = {
   totalLedgerBalance: number;
@@ -14,6 +15,7 @@ const ExpensesStats = () => {
   const [balance, setTotalBalance] = useState<Balance>();
   const [isLoading, setIsLoading] = useState(false);
   const openNotification = useNotification();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const getTotalBalance = async () => {
@@ -39,16 +41,22 @@ const ExpensesStats = () => {
   ) : (
     <div className="stats stats-vertical lg:stats-horizontal shadow">
       <div className="stat">
-        <div className="stat-title text-error mb-2">Expense</div>
-        <div className="stat-value">{balance?.totalLedgerBalance}</div>
+        <div className="stat-title text-error mb-2">{t("common.expense")}</div>
+        <div className="stat-value">
+          {balance?.totalLedgerBalance.toFixed(2)}
+        </div>
       </div>
       <div className="stat">
-        <div className="stat-title text-success mb-2">Income</div>
-        <div className="stat-value">{balance?.totalPaidReservations}</div>
+        <div className="stat-title text-success mb-2">{t("common.income")}</div>
+        <div className="stat-value">
+          {balance?.totalPaidReservations.toFixed(2)}
+        </div>
       </div>
       <div className="stat">
-        <div className="stat-title text-primary mb-2">Balance</div>
-        <div className="stat-value">{balance?.totalBalance}</div>
+        <div className="stat-title text-primary mb-2">
+          {t("common.balance")}
+        </div>
+        <div className="stat-value">{balance?.totalBalance.toFixed(2)}</div>
       </div>
     </div>
   );

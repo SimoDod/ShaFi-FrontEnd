@@ -8,6 +8,7 @@ import deleteReservationThunk from "../../store/thunks/reservation/deleteReserva
 import useDialog from "../../hooks/useDialog";
 import { useNavigate, useParams } from "react-router-dom";
 import { routePaths } from "../../routerConfig";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   reservations: ReservationResponse[];
@@ -18,16 +19,17 @@ const ReservationsTable = ({ reservations }: Props) => {
   const openDialog = useDialog();
   const navigate = useNavigate();
   const { year } = useParams();
+  const { t } = useTranslation();
 
   return (
     <div className="overflow-x-auto">
       <table className="table table-zebra">
         <thead>
           <tr>
-            <th className="text text-primary">Note</th>
-            <th className="text text-primary">Reserved</th>
-            <th className="text text-primary">Paid</th>
-            <th className="text text-primary">Actions</th>
+            <th className="text text-primary">{t("common.note")}</th>
+            <th className="text text-primary">{t("common.reserved")}</th>
+            <th className="text text-primary">{t("common.paid")}</th>
+            <th className="text text-primary">{t("common.actions")}</th>
           </tr>
         </thead>
         <tbody>

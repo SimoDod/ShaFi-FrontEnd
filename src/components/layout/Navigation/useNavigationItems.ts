@@ -1,16 +1,12 @@
 import {
   faCalendarDays,
-  faGear,
   faHome,
   faReceipt,
-  faRightFromBracket,
-  faUser,
   IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
 import { routePaths } from "../../../routerConfig";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
-import useLogout from "../../../hooks/useLogout";
 
 type MenuItem = {
   label: string;
@@ -22,7 +18,6 @@ type MenuItem = {
 const useNavigationItems = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const logout = useLogout();
   const { pathname } = useLocation();
 
   const navMenuItems: MenuItem[] = [
@@ -46,25 +41,7 @@ const useNavigationItems = () => {
     },
   ];
 
-  const profileMenuItems: MenuItem[] = [
-    {
-      label: t("profileMenu.profile"),
-      icon: faUser,
-      onClick: () => {},
-    },
-    {
-      label: t("profileMenu.settings"),
-      icon: faGear,
-      onClick: () => {},
-    },
-    {
-      label: t("profileMenu.logout"),
-      icon: faRightFromBracket,
-      onClick: () => logout(),
-    },
-  ];
-
-  return { navMenuItems, profileMenuItems };
+  return navMenuItems;
 };
 
 export default useNavigationItems;

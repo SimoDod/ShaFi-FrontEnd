@@ -13,7 +13,7 @@ const useTheme = () => {
     localStorage.setItem(themeKey, theme);
   }, [theme]);
 
-  return { theme, setTheme };
+  return { themeKey, theme, setTheme };
 };
 
 export default useTheme;

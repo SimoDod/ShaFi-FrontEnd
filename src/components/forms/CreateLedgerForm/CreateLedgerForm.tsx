@@ -31,7 +31,7 @@ const CreateLedgerForm = ({ isLoading = false, onSubmit }: Props) => {
         {({ values, isValid, dirty }) => (
           <Form>
             <FormikField name="title" label={t("common.title")} />
-            <FormikField name="color" label={t("common.title")} as="select">
+            <FormikField name="color" label={t("common.total")} as="select">
               <option value="" disabled>
                 {t("ledgersPage.selectLedgerColor")}
               </option>
@@ -43,7 +43,6 @@ const CreateLedgerForm = ({ isLoading = false, onSubmit }: Props) => {
             </FormikField>
             <div className={`divider divider-${values.color} mt-8`}>
               {t("common.total")}
-              {values.color}
             </div>
             <ButtonLoader
               type="submit"

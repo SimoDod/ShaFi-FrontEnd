@@ -6,6 +6,7 @@ import { useAppDispatch } from "../../store/store";
 import useDialog from "../../hooks/useDialog";
 import { ExpenseResponse } from "../../types/Ledger";
 import deleteExpenseThunk from "../../store/thunks/ledger/deleteExpenseThunk";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   expenses?: ExpenseResponse[];
@@ -15,16 +16,17 @@ type Props = {
 const ExpensesTable = ({ expenses = [], ledgerId }: Props) => {
   const dispatch = useAppDispatch();
   const openDialog = useDialog();
+  const { t } = useTranslation();
 
   return (
     <div className="overflow-x-auto">
       <table className="table table-zebra">
         <thead>
           <tr>
-            <th className="text text-primary">Date</th>
-            <th className="text text-primary">Title</th>
-            <th className="text text-primary">Amount</th>
-            <th className="text text-primary">Actions</th>
+            <th className="text text-primary">{t("common.date")}</th>
+            <th className="text text-primary">{t("common.title")}</th>
+            <th className="text text-primary">{t("common.amount")}</th>
+            <th className="text text-primary">{t("common.actions")}</th>
           </tr>
         </thead>
         <tbody>

@@ -1,5 +1,3 @@
-//TODO translate
-
 import { useNavigate, useParams } from "react-router-dom";
 import Pagination from "../../common/Pagination/Pagination";
 import WindowCard from "../../WindowCard/WindowCard";

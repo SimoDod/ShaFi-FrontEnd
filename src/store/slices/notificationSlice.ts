@@ -12,6 +12,7 @@ import fetchAllReservationDatesThunk from "../thunks/reservation/fetchAllReserva
 import deleteLedgerThunk from "../thunks/ledger/deleteLedgerThunk";
 import addExpenseThunk from "../thunks/ledger/addExpenseThunk";
 import deleteExpenseThunk from "../thunks/ledger/deleteExpenseThunk";
+import i18next from "i18next";
 
 type NotificationState = {
   message: string;
@@ -20,8 +21,6 @@ type NotificationState = {
 const initialState: NotificationState = {
   message: "",
 };
-
-//TODO translate
 
 const notificationSlice = createSlice({
   name: "notification",
@@ -49,7 +48,7 @@ const notificationSlice = createSlice({
         deleteExpenseThunk.rejected
       ),
       (state, action) => {
-        state.message = action.payload || "An unknown error occurred";
+        state.message = action.payload || i18next.t("apiError.unknownError");
       }
     );
   },

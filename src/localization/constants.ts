@@ -4,4 +4,5 @@ import { Languages } from "./types";
 export const languages: Languages = [
   { shortName: "en", nativeName: "English" },
   { shortName: "de", nativeName: "Deutsch" },
+  { shortName: "bg", nativeName: "Bulgarian" },
 ];
