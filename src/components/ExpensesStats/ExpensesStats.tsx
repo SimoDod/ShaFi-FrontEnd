@@ -9,7 +9,7 @@ type Balance = {
   totalBalance: number;
 };
 
-// Translate
+//TODO Translate
 
 const ExpensesStats = () => {
   const [balance, setTotalBalance] = useState<Balance>();
