@@ -1,4 +1,3 @@
-import { useTranslation } from "react-i18next";
 import LedgerTileWrapper from "./LedgerTileWrapper/LedgerTileWrapper";
 import { ledgerColors } from "../../utils/constants";
 import { useAppDispatch } from "../../store/store";
@@ -14,7 +13,6 @@ type Props = {
 };
 
 const LedgerTile = ({ title, total, id, color = "accent", onClick }: Props) => {
-  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const openDialog = useDialog();
 
@@ -28,9 +26,7 @@ const LedgerTile = ({ title, total, id, color = "accent", onClick }: Props) => {
       }
     >
       <h2 className="card-title text-primary text-lg">{title}</h2>
-      <div className={`divider divider-${color} text-lg`}>
-        {t("common.total")}
-      </div>
+      <div className={`divider divider-${color} text-lg`} />
       <div className="text-xl">{total}</div>
     </LedgerTileWrapper>
   );

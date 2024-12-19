@@ -41,15 +41,15 @@ const ExpensesStats = () => {
   ) : (
     <div className="stats stats-vertical lg:stats-horizontal shadow">
       <div className="stat">
-        <div className="stat-title text-error mb-2">{t("common.expense")}</div>
-        <div className="stat-value">
-          {balance?.totalLedgerBalance.toFixed(2)}
-        </div>
-      </div>
-      <div className="stat">
         <div className="stat-title text-success mb-2">{t("common.income")}</div>
         <div className="stat-value">
           {balance?.totalPaidReservations.toFixed(2)}
+        </div>
+      </div>
+      <div className="stat">
+        <div className="stat-title text-error mb-2">{t("common.expense")}</div>
+        <div className="stat-value">
+          {balance?.totalLedgerBalance.toFixed(2)}
         </div>
       </div>
       <div className="stat">
