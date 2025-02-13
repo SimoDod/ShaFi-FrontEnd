@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react()],
   build: {
     minify: "esbuild",
-    outDir: "../simodod.github.io",
+    outDir: "../ShaFi-BackEnd/dist",
   },
   css: {
     postcss: {
