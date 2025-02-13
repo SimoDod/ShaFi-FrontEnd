@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react()],
   build: {
     minify: "esbuild",
-    outDir: "../ShaFi-BackEnd/dist",
+    outDir: "../ShaFi-BackEnd/distStatic",
   },
   css: {
     postcss: {
