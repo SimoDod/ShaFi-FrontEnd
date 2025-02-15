@@ -20,14 +20,14 @@ const Modal = ({
   createPortal(
     <div className={`modal modal-open z-40 ${!centered && "items-start"}`}>
       <div
-        className={`modal-box max-w-fit p-3 m-1 xxs:w-full xxxs:w-full ${!centered && "mt-40 xxxs:mt-20"}`}
+        className={`modal-box max-w-fit p-6 m-1 xxs:w-full xxxs:w-full ${!centered && "mt-40 xxxs:mt-20"}`}
       >
         <div className="flex justify-between h-8">
           <h3 className="font-bold text-lg">{title}</h3>
           <button onClick={onClose} className="btn btn-link p-1 items-start">
             <Icon
               icon={faX}
-              className="text-primary h-4 hover:text-secondary"
+              className="text-primary h-4 ml-4 hover:text-secondary"
             />
           </button>
         </div>

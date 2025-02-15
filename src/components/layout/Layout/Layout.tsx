@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useAppDispatch } from "../../../store/store";
 import { fetchUserThunk } from "../../../store/thunks/auth/fetchUserThunk";
-import Navigation from "../Navigation/Navigation";
+import NavigationBar from "../NavigationBar/NavigationBar";
 import { Outlet } from "react-router-dom";
 
 const Layout = () => {
@@ -13,18 +13,18 @@ const Layout = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navigation />
+      <NavigationBar />
       <div className="flex-grow">
         <Outlet />
       </div>
-      <footer className="footer footer-center bg-base-300 text-base-content p-3 mt-auto">
+      {/*       <footer className="footer footer-center bg-base-300 text-base-content p-3 mt-auto">
         <aside>
           <p>
             Copyright © {new Date().getFullYear()} - All right reserved by
             Simeon Dodov
           </p>
         </aside>
-      </footer>
+      </footer> */}
     </div>
   );
 };

@@ -1,5 +1,5 @@
 export const routePaths = {
-  login: { label: "", path: "/login" },
+  login: { label: "navMenu.login", path: "/login" },
   ledgers: {
     label: "navMenu.ledgers",
     path: "/ledgers/",

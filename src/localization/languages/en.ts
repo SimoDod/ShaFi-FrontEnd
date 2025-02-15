@@ -45,6 +45,7 @@ export const en = {
       dashboard: "Dashboard",
       reservations: "Reservations",
       ledgers: "Ledgers",
+      login: "Login",
     },
     login: {
       keyWord: "Login",

@@ -2,11 +2,13 @@ import {
   faCalendarDays,
   faHome,
   faReceipt,
+  faUser,
   IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
-import { routePaths } from "../../../routerConfig";
+import { routePaths } from "../../routerConfig";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
+import { getAuthToken } from "../../utils/authentication/authentication";
 
 type MenuItem = {
   label: string;
@@ -19,8 +21,9 @@ const useNavigationItems = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const authToken = getAuthToken();
 
-  const navMenuItems: MenuItem[] = [
+  const authenticatedMenuItems: MenuItem[] = [
     {
       label: t(routePaths.dashboard.label),
       icon: faHome,
@@ -41,7 +44,18 @@ const useNavigationItems = () => {
     },
   ];
 
-  return navMenuItems;
+  const loginMenuItem: MenuItem = {
+    label: t(routePaths.login.label),
+    icon: faUser,
+    isActive: routePaths.login.path === pathname,
+    onClick: () => navigate(routePaths.login.path),
+  };
+
+  if (authToken) {
+    return authenticatedMenuItems;
+  }
+
+  return [loginMenuItem];
 };
 
 export default useNavigationItems;

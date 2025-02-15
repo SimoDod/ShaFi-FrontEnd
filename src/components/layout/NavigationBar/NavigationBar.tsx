@@ -1,15 +1,13 @@
 import Icon from "../../common/Icon/Icon";
 import Modal from "../../common/Modal/Modal";
-import useNavigationItems from "./useNavigationItems";
-import clsx from "clsx";
 import { useState } from "react";
 import ExpensesStats from "../../ExpensesStats/ExpensesStats";
 import { useTranslation } from "react-i18next";
 import SettingsPanel from "../../SettingsPanel/SettingsPanel";
 import { faGear } from "@fortawesome/free-solid-svg-icons";
+import NavigationMenu from "../../NavigationMenu/NavigationMenu";
 
-const Navigation = () => {
-  const navMenuItems = useNavigationItems();
+const NavigationBar = () => {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const toggleSettingsModal = () => setIsSettingsOpen((prev) => !prev);
   const [isOpen, setIsOpen] = useState(false);
@@ -31,30 +29,12 @@ const Navigation = () => {
       )}
       <div className="navbar">
         <div className="navbar-start">
-          <a className="btn btn-ghost text-xl" onClick={() => setIsOpen(true)}>
+          <a className="btn bg-base-300 text-xl" onClick={() => setIsOpen(true)}>
             ShaFi
           </a>
         </div>
         <div className="navbar-center">
-          <ul className="menu menu-horizontal bg-base-200 rounded-box">
-            {navMenuItems.map(({ icon, label, onClick, isActive }) => (
-              <li
-                key={label}
-                className={clsx(
-                  { "bg-primary text-base-200": isActive },
-                  "hover:bg-secondary hover:text-base-200 rounded mr-1 ml-1"
-                )}
-              >
-                <a
-                  className="tooltip tooltip-bottom"
-                  data-tip={label}
-                  onClick={onClick}
-                >
-                  <Icon icon={icon} className="size-4" />
-                </a>
-              </li>
-            ))}
-          </ul>
+          <NavigationMenu />
         </div>
         <div className="navbar-end">
           <button
@@ -69,4 +49,4 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+export default NavigationBar;

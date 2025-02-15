@@ -100,7 +100,7 @@ const ReservationsPage = () => {
       <div className="mr-2 ml-2 2xl:pr-40 2xl:pl-40">
         <WindowCard
           heading={
-            <h2 className="text text-2xl text-primary">
+            <h2 className="text text-3xl text-base-300">
               {t("reservationsPage.reservations")}
             </h2>
           }
@@ -113,23 +113,23 @@ const ReservationsPage = () => {
             />
           }
         >
-          <div className="flex justify-between mr-6 ml-6 mb-4">
-            <button
-              className="btn btn-primary hover:btn-secondary"
-              onClick={() =>
-                navigate(
-                  `${routePaths.reservations.path}${year}${routePaths.reservations.create}`
-                )
-              }
-            >
-              <Icon icon={faPlusCircle} />
-            </button>
-            <Search onSearch={(value) => setSearchValue(value)} />
-          </div>
           <ReservationsTable
             reservations={filterReservationsByValue(searchValue, reservations)}
           />
         </WindowCard>
+        <div className="flex justify-between mx-4">
+          <button
+            className="btn btn-primary hover:btn-secondary"
+            onClick={() =>
+              navigate(
+                `${routePaths.reservations.path}${year}${routePaths.reservations.create}`
+              )
+            }
+          >
+            <Icon icon={faPlusCircle} />{' '}{t("buttons.add")}
+          </button>
+          <Search onSearch={(value) => setSearchValue(value)} />
+        </div>
       </div>
     </>
   );

@@ -15,13 +15,11 @@ import {
   faArrowLeft,
   faArrowRight,
   faCalendar,
-  faKey,
   faMapLocationDot,
   faRefresh,
 } from "@fortawesome/free-solid-svg-icons";
 import "./InfoCalendar.css";
 import { useEffect, useRef, useState } from "react";
-import { routePaths } from "../../routerConfig";
 import { Transition } from "@headlessui/react";
 
 const InfoCalendar = ({ reservedDates = [] }: { reservedDates?: string[] }) => {
@@ -30,7 +28,7 @@ const InfoCalendar = ({ reservedDates = [] }: { reservedDates?: string[] }) => {
   const [isDoubleView, setIsDoubleView] = useState(false);
   const [isMap, setIsMap] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
-  
+
   const isReserved = (date: Date) =>
     reservedDates.includes(formatISO(date, { representation: "date" }));
 
@@ -45,7 +43,7 @@ const InfoCalendar = ({ reservedDates = [] }: { reservedDates?: string[] }) => {
   }, [isMap]);
 
   return (
-    <WindowCard headingGap={0} opacity="90">
+    <WindowCard headingGap={0} opacity="90" background="base-300">
       <div className="w-full max-w-lg rounded-lg p-4 pt-0 font-semibold">
         <Calendar
           tileClassName={({ date, activeStartDate, view }) =>
@@ -80,35 +78,22 @@ const InfoCalendar = ({ reservedDates = [] }: { reservedDates?: string[] }) => {
           )}
         />
       </div>
-      <div className="flex mb-2 mr-2 justify-between">
-        <div>
-          <button
-            onClick={() => navigate(routePaths.login.path)}
-            className="btn btn-ghost text-base-100 opacity-5 cursor-default"
-          >
-            <Icon icon={faKey} />
-          </button>
-        </div>
-        <div className="flex gap-4">
-          <button
-            className="btn btn-circle btn-link"
-            onClick={() => navigate(0)}
-          >
-            <Icon icon={faRefresh} />
-          </button>
-          <button
-            className={`btn btn-circle btn-${isDoubleView ? "neutral" : "link"}`}
-            onClick={() => setIsDoubleView((prev) => !prev)}
-          >
-            <Icon icon={faCalendar} />
-          </button>
-          <button
-            className={`btn btn-circle btn-${isMap ? "neutral" : "link"}`}
-            onClick={() => setIsMap((prev) => !prev)}
-          >
-            <Icon icon={faMapLocationDot} />
-          </button>
-        </div>
+      <div className="flex justify-end p-2 gap-4">
+        <button className="btn btn-circle btn-link" onClick={() => navigate(0)}>
+          <Icon icon={faRefresh} className="h-5" />
+        </button>
+        <button
+          className={`btn btn-circle btn-${isDoubleView ? "neutral" : "link"}`}
+          onClick={() => setIsDoubleView((prev) => !prev)}
+        >
+          <Icon icon={faCalendar} className="h-5" />
+        </button>
+        <button
+          className={`btn btn-circle btn-${isMap ? "neutral" : "link"}`}
+          onClick={() => setIsMap((prev) => !prev)}
+        >
+          <Icon icon={faMapLocationDot} className="h-5" />
+        </button>
       </div>
       <Transition
         show={isMap}
