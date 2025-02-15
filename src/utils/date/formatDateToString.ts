@@ -4,6 +4,7 @@ export const dateFormats = {
   defaultSlash: "dd/MM/yyyy",
   defaultLine: "dd-MM-yyyy",
   yearFirstLine: "yyyy-MM-dd",
+  dateAndMonth: "dd-MM",
 };
 
 const formatDateToString = (

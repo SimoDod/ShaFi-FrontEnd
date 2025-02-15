@@ -1,16 +1,15 @@
-import ReactDatePicker from "react-datepicker";
+import Datepicker from "react-tailwindcss-datepicker";
 import { parse, eachDayOfInterval, isSameDay } from "date-fns";
 import { dateFormats } from "../../../utils/date/formatDateToString";
 import { ErrorMessage } from "formik";
-import "react-datepicker/dist/react-datepicker.css";
 import useNotification from "../../../hooks/useNotification";
 import { useTranslation } from "react-i18next";
+import { DateRangeType } from "react-tailwindcss-datepicker/dist/types";
 
 type Props = {
   name: string;
   value: [string, string];
   label: string;
-  dateFormat: string;
   minDate?: Date;
   maxDate?: Date;
   excludeDates?: Date[];
@@ -21,7 +20,6 @@ const DateRangePicker = ({
   name,
   value,
   label,
-  dateFormat,
   minDate,
   maxDate,
   excludeDates = [],
@@ -29,19 +27,25 @@ const DateRangePicker = ({
 }: Props) => {
   const openNotification = useNotification();
   const { t } = useTranslation();
-  const startDate = value[0]
-    ? parse(value[0], dateFormats.yearFirstLine, new Date())
-    : undefined;
-  const endDate = value[1]
-    ? parse(value[1], dateFormats.yearFirstLine, new Date())
-    : undefined;
 
-  const handleChange = (dates: [Date | null, Date | null]) => {
+  const parseDate = (dateString: string) =>
+    dateString
+      ? parse(dateString, dateFormats.yearFirstLine, new Date())
+      : null;
+
+  const startDate = parseDate(value[0]);
+  const endDate = parseDate(value[1]);
+
+  const handleChange = (pickerValue: DateRangeType | null) => {
+    const dates: [Date | null, Date | null] = [
+      pickerValue?.startDate || null,
+      pickerValue?.endDate || null,
+    ];
+
     const [start, end] = dates;
 
     if (start && end) {
       const selectedRange = eachDayOfInterval({ start, end });
-
       const hasDisabledDate = selectedRange.some((day) =>
         excludeDates.some((disabledDate) => isSameDay(day, disabledDate))
       );
@@ -60,21 +64,21 @@ const DateRangePicker = ({
       <label className="label">
         <span className="label-text text-base">{label}</span>
       </label>
-      <ReactDatePicker
-        name={name}
-        className="input focus:border-primary border border-neutral min-w-60"
-        selected={startDate}
+      <Datepicker
+        value={{
+          startDate: startDate,
+          endDate: endDate,
+        }}
         onChange={handleChange}
-        startDate={startDate}
-        endDate={endDate}
-        selectsRange
-        dateFormat={dateFormat}
-        autoComplete="off"
+        useRange={true}
         minDate={minDate}
         maxDate={maxDate}
-        excludeDates={excludeDates}
-        isClearable
-        calendarClassName="date-range-picker"
+        inputClassName="input focus:border-primary border border-neutral min-w-72"
+        readOnly={true}
+        disabledDates={excludeDates.map((date) => ({
+          startDate: date,
+          endDate: date,
+        }))}
       />
       <ErrorMessage
         name={name}

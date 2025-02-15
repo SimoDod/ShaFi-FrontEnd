@@ -6,7 +6,7 @@ const NavigationMenu = () => {
   const navMenuItems = useNavigationItems();
 
   return (
-    <ul className="menu menu-horizontal bg-base-200 rounded-box">
+    <ul className="menu menu-horizontal  rounded-box">
       {navMenuItems.map(({ icon, label, onClick, isActive }) => (
         <li
           key={label}

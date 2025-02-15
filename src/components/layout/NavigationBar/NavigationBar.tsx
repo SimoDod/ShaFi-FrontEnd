@@ -7,29 +7,35 @@ import SettingsPanel from "../../SettingsPanel/SettingsPanel";
 import { faGear } from "@fortawesome/free-solid-svg-icons";
 import NavigationMenu from "../../NavigationMenu/NavigationMenu";
 
+enum ModalMode {
+  STATS,
+  SETTINGS,
+}
+
 const NavigationBar = () => {
-  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-  const toggleSettingsModal = () => setIsSettingsOpen((prev) => !prev);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<ModalMode | null>(null);
   const { t } = useTranslation();
 
   return (
     <>
-      {isOpen && (
-        <Modal onClose={() => setIsOpen(false)}>
+      {isOpen === ModalMode.STATS && (
+        <Modal onClose={() => setIsOpen(null)}>
           <div className="flex min-w-60 justify-center">
             <ExpensesStats />
           </div>
         </Modal>
       )}
-      {isSettingsOpen && (
-        <Modal title={t("common.settings")} onClose={toggleSettingsModal}>
+      {isOpen === ModalMode.SETTINGS && (
+        <Modal title={t("common.settings")} onClose={() => setIsOpen(null)}>
           <SettingsPanel />
         </Modal>
       )}
       <div className="navbar">
         <div className="navbar-start">
-          <a className="btn bg-base-300 text-xl" onClick={() => setIsOpen(true)}>
+          <a
+            className="bg-base-300 p-2 rounded-xl border-none outline-none text-xl"
+            onClick={() => setIsOpen(ModalMode.STATS)}
+          >
             ShaFi
           </a>
         </div>
@@ -38,7 +44,7 @@ const NavigationBar = () => {
         </div>
         <div className="navbar-end">
           <button
-            onClick={() => toggleSettingsModal()}
+            onClick={() => setIsOpen(ModalMode.SETTINGS)}
             className="btn btn-ghost"
           >
             <Icon icon={faGear} />

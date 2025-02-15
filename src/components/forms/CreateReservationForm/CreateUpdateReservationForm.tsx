@@ -52,7 +52,6 @@ const CreateUpdateReservationForm = ({
             <DateRangePicker
               name="reservationDate"
               label={t("reservationsPage.reservationDate")}
-              dateFormat={dateFormats.yearFirstLine}
               value={values.reservationDate}
               excludeDates={reservedDates.map((date) => new Date(date))}
               onChange={(dates) => {

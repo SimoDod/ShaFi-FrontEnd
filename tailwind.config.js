@@ -1,7 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require("tailwindcss/defaultTheme");
 export default {
-  content: ["./src/**/*.{js,jsx,ts,tsx,css}", "./public/index.html"],
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx,css}",
+    "./public/index.html",
+    "./node_modules/react-tailwindcss-datepicker/dist/index.esm.{js,ts}",
+  ],
   theme: {
     extend: {
       fontFamily: {
