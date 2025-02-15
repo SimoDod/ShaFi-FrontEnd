@@ -25,7 +25,7 @@ const WindowCard = ({
       className={`mockup-window bg-${background} mb-8 mt-4 overflow-auto opacity-${opacity}`}
     >
       <div
-        className={`flex justify-between items-center flex-wrap pl-6 pr-6 mb-${headingGap}`}
+        className={`flex justify-between items-center flex-wrap pl-4 pr-4 mb-${headingGap}`}
       >
         <div>{heading}</div>
         <div>{extra}</div>

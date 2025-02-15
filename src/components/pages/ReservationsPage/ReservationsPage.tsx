@@ -69,7 +69,7 @@ const ReservationsPage = () => {
   }, [dispatch, year]);
 
   return (
-    <div className="pb-8">
+    <>
       {isReservationUpdate && (
         <Modal
           onClose={() => navigate(`${routePaths.reservations.path}${year}`)}
@@ -97,7 +97,7 @@ const ReservationsPage = () => {
           />
         </Modal>
       )}
-      <div className="mx-2 2xl:pr-40 2xl:pl-40">
+      <div className="ml-1 mr-1 2xl:pr-40 2xl:pl-40">
         <WindowCard
           heading={
             <h2 className="text text-3xl text-base-300">
@@ -117,7 +117,7 @@ const ReservationsPage = () => {
             reservations={filterReservationsByValue(searchValue, reservations)}
           />
         </WindowCard>
-        <div className="flex justify-between mx-4">
+        <div className="flex justify-between mx-4 mb-8">
           <button
             className="btn btn-primary hover:btn-secondary"
             onClick={() =>
@@ -131,7 +131,7 @@ const ReservationsPage = () => {
           <Search onSearch={(value) => setSearchValue(value)} />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
