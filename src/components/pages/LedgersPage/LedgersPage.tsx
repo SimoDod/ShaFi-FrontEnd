@@ -73,7 +73,7 @@ const LedgersPage = () => {
           />
         </Modal>
       )}
-      <div className="mr-2 ml-2 2xl:pr-40 2xl:pl-40">
+      <div className="mx-2 2xl:pr-40 2xl:pl-40">
         <WindowCard
           contentClass="flex flex-wrap justify-evenly"
           heading={
