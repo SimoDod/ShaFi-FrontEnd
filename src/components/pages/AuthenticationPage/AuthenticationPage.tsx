@@ -4,6 +4,10 @@ import ButtonLoader from "../../common/ButtonLoader/ButtonLoader";
 import { useTranslation } from "react-i18next";
 import useAuthenticationPage from "./useAuthenticationPage";
 import FormikField from "../../common/FormikField/FormikField";
+import { useNavigate } from "react-router-dom";
+import { routePaths } from "../../../routerConfig";
+import Icon from "../../common/Icon/Icon";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const AuthenticationPage = () => {
   const { t } = useTranslation();
@@ -15,6 +19,7 @@ const AuthenticationPage = () => {
     authMode,
     handleAuthentication,
   } = useAuthenticationPage();
+  const navigate = useNavigate();
 
   return (
     <div className="hero bg-base-200 min-h-screen flex items-center justify-center">
@@ -34,6 +39,14 @@ const AuthenticationPage = () => {
           </p> */}
         </div>
         <div className="card bg-base-100 lg:min-w-96 shadow-2xl">
+          <div>
+            <button
+              className="btn"
+              onClick={() => navigate(routePaths.dashboard.path)}
+            >
+              <Icon icon={faArrowLeft} /> {t("buttons.backButton")}
+            </button>
+          </div>
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
@@ -50,7 +63,7 @@ const AuthenticationPage = () => {
                   }
                 />
               ))}
-              <div className="form-control mt-6">
+              <div className="form-control mt-6 gap-4">
                 <ButtonLoader
                   type="submit"
                   className="btn-primary"

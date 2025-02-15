@@ -28,10 +28,10 @@ const DashboardPage = () => {
 
   return (
     <div className="min-h-screen">
-      <div className="flex justify-center pt-2">
+      <div className="flex justify-center py-2">
         <NavigationMenu />
       </div>
-      <div className="flex justify-center items-center h-screen-minus-12rem">
+      <div className="flex justify-center items-center m-1">
         {!error && <InfoCalendar reservedDates={reservedDates} />}
       </div>
     </div>

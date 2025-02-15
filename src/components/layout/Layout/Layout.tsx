@@ -12,7 +12,7 @@ const Layout = () => {
   }, [dispatch]);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col mb-8">
       <NavigationBar />
       <div className="flex-grow">
         <Outlet />
