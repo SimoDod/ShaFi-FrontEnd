@@ -9711,6 +9711,10 @@ details.collapse summary::-webkit-details-marker {
 }
 
 @media (min-width: 320px) {
+  .xxxs\:m-1 {
+    margin: 0.25rem;
+  }
+
   .xxxs\:mt-20 {
     margin-top: 5rem;
   }
@@ -9722,11 +9726,28 @@ details.collapse summary::-webkit-details-marker {
   .xxxs\:w-full {
     width: 100%;
   }
+
+  .xxxs\:w-fit {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+
+  .xxxs\:w-\[99\%\] {
+    width: 99%;
+  }
+
+  .xxxs\:w-\[98\%\] {
+    width: 98%;
+  }
 }
 
 @media (min-width: 480px) {
   .xxs\:w-full {
     width: 100%;
+  }
+
+  .xxs\:w-\[98\%\] {
+    width: 98%;
   }
 }
 

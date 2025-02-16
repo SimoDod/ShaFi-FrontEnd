@@ -20,7 +20,7 @@ const Modal = ({
   createPortal(
     <div className={`modal modal-open z-40 ${!centered && "items-start"}`}>
       <div
-        className={`modal-box p-6 m-1 xxs:w-full xxxs:w-full ${!centered && "mt-40 xxxs:mt-20"}`}
+        className={`modal-box xxs:w-[98%] xxxs:w-[98%] ${!centered && "mt-40 xxxs:mt-20"}`}
       >
         <div className="flex justify-between h-8">
           <h3 className="font-bold text-lg">{title}</h3>
