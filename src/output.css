@@ -5930,6 +5930,14 @@ details.collapse summary::-webkit-details-marker {
   z-index: 1;
 }
 
+.z-\[9999\] {
+  z-index: 9999;
+}
+
+.z-\[1000\] {
+  z-index: 1000;
+}
+
 .col-span-1 {
   grid-column: span 1 / span 1;
 }
@@ -6624,6 +6632,14 @@ details.collapse summary::-webkit-details-marker {
   width: 100vw;
 }
 
+.w-8\/12 {
+  width: 66.666667%;
+}
+
+.w-svw {
+  width: 100svw;
+}
+
 .min-w-20 {
   min-width: 5rem;
 }
@@ -7133,6 +7149,10 @@ details.collapse summary::-webkit-details-marker {
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+.overflow-visible {
+  overflow: visible;
 }
 
 .overflow-x-auto {
@@ -9693,6 +9713,10 @@ details.collapse summary::-webkit-details-marker {
 @media (min-width: 320px) {
   .xxxs\:mt-20 {
     margin-top: 5rem;
+  }
+
+  .xxxs\:mt-10 {
+    margin-top: 2.5rem;
   }
 
   .xxxs\:w-full {

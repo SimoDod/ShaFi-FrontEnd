@@ -79,6 +79,8 @@ const DateRangePicker = ({
           startDate: date,
           endDate: date,
         }))}
+        startWeekOn="mon"
+        popoverDirection="down"
       />
       <ErrorMessage
         name={name}
