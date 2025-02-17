@@ -25,6 +25,9 @@ ShaFi is a personalized property management system designed for property owners 
 
 ## Setup & Installation
 
+### Development Environment
+Ensure you have Node.js installed.
+
 ### Clone the Repository
 ```bash
 git clone https://github.com/SimoDod/ShaFi-FrontEnd.git
@@ -45,9 +48,6 @@ VITE_AZURE_API_BASE_URL=http://localhost:8080/api/
 ```bash
 npm run dev
 ```
-
-### Development Environment
-Ensure you have Node.js installed.
 
 ### Contributions
 Feel free to submit PRs for bug fixes, improvements, or new features.
