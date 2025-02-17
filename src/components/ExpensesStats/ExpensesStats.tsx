@@ -9,8 +9,6 @@ type Balance = {
   totalBalance: number;
 };
 
-//TODO Translate
-
 const ExpensesStats = () => {
   const [balance, setTotalBalance] = useState<Balance>();
   const [isLoading, setIsLoading] = useState(false);
@@ -39,7 +37,7 @@ const ExpensesStats = () => {
   return isLoading ? (
     <span className="loading loading-dots loading-lg" />
   ) : (
-    <div className="stats stats-vertical lg:stats-horizontal shadow w-screen">
+    <div className="stats stats-vertical shadow w-screen">
       <div className="stat">
         <div className="stat-title text-success mb-2">{t("common.income")}</div>
         <div className="stat-value">

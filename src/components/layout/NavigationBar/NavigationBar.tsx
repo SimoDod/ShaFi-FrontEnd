@@ -33,7 +33,7 @@ const NavigationBar = () => {
       <div className="navbar">
         <div className="navbar-start">
           <a
-            className="bg-base-300 p-2 rounded-xl border-none outline-none text-xl"
+            className="bg-base-300 p-2 rounded-xl border-none outline-none text-xl cursor-pointer"
             onClick={() => setIsOpen(ModalMode.STATS)}
           >
             ShaFi
