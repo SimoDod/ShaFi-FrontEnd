@@ -32,7 +32,7 @@ const ExpensesTable = ({ expenses = [], ledgerId }: Props) => {
         <tbody>
           {expenses.map(({ date, title, amount, _id }) => (
             <tr key={_id}>
-              <td>{format(date, dateFormats.defaultLine)}</td>
+              <td>{format(date, dateFormats.defaultSlash)}</td>
               <td>{title}</td>
               <td>{amount}</td>
               <td>

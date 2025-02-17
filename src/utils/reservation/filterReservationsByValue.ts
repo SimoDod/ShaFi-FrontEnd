@@ -12,7 +12,7 @@ const filterReservationsByValue = (
       .includes(value.toLowerCase());
     const matchesPaid = reservation.paid.toString().includes(value);
     const matchesDate = reservation.reservationDate.some((date) => {
-      const formattedDate = format(parseISO(date), dateFormats.defaultLine);
+      const formattedDate = format(parseISO(date), dateFormats.defaultSlash);
       return formattedDate.includes(value);
     });
 

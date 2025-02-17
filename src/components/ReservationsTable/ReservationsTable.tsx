@@ -59,14 +59,14 @@ const ReservationsTable = ({ reservations }: Props) => {
                     <div>
                       {format(
                         parseISO(reservationStart),
-                        dateFormats.defaultLine
+                        dateFormats.defaultSlash
                       )}
                     </div>
                     <div className="divider divider-primary w-16 m-0 ml-1" />
                     <div>
                       {format(
                         parseISO(reservationEnd),
-                        dateFormats.defaultLine
+                        dateFormats.defaultSlash
                       )}
                     </div>
                   </td>

@@ -65,15 +65,12 @@ const DateRangePicker = ({
         <span className="label-text text-base">{label}</span>
       </label>
       <Datepicker
-        value={{
-          startDate: startDate,
-          endDate: endDate,
-        }}
+        value={{ startDate, endDate }}
         onChange={handleChange}
-        useRange={true}
+        useRange={false}
         minDate={minDate}
         maxDate={maxDate}
-        inputClassName="input focus:border-primary border border-neutral min-w-72"
+        inputClassName="input focus:border-primary border border-neutral min-w-72 text-primary"
         readOnly={true}
         disabledDates={excludeDates.map((date) => ({
           startDate: date,
@@ -81,6 +78,7 @@ const DateRangePicker = ({
         }))}
         startWeekOn="mon"
         popoverDirection="down"
+        displayFormat="DD/MM/YY"
       />
       <ErrorMessage
         name={name}
