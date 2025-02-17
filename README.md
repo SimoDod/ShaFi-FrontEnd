@@ -1,50 +1,50 @@
-# React + TypeScript + Vite
+# ShaFi FrontEnd
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Related Projects
+In order for the project to work correctly you need to connect to BackEnd service.
+Here you can find a guide how to run it: 
+ShaFi-BackEnd ([https://github.com/SimoDod/ShaFi-BackEnd])
 
-Currently, two official plugins are available:
+## Overview
+ShaFi is a personalized property management system designed for property owners to manage rentals similar to Airbnb. The system includes:
+- **Dashboard** accessible to all users, showing a calendar of reserved dates and property information including Google Maps integration.
+- **Reservations** and **Ledgers** access for registered users only, to manage reservations and track bills and expenses.
+- **Total Income and Expenses** for financial overview.
+- **Multi-language Support** and **Theme Customization** for better user experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
+- **React** for building user interfaces
+- **Redux Toolkit** for state management
+- **React Router** for routing
+- **Tailwind CSS** with DaisyUI for styling
+- **i18next** for internationalization
+- **Axios** for HTTP requests
+- **Formik & Yup** for form handling and validation
+- **Date-fns & Day.js** for date manipulation
+- **FontAwesome** for icons
 
-## Expanding the ESLint configuration
+## Setup & Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Clone the Repository
+```bash
+git clone [your-repository-url]
 
-- Configure the top-level `parserOptions` property like this:
+### Setup & Installation
+```bash
+npm install
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Environment Configuration
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Create a .env file in the root directory with the following content:
+```bash
+VITE_AZURE_API_BASE_URL=http://localhost:8080/api/
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Run the project
+```bash
+npm run dev
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Development Environment
+Ensure you have Node.js installed.
+
+### Contributions
+Feel free to submit PRs for bug fixes, improvements, or new features.
