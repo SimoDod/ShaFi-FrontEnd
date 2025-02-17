@@ -7,7 +7,6 @@ const App = () => {
 
   return (
     <div
-      className="pb-8"
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
