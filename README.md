@@ -27,7 +27,7 @@ ShaFi is a personalized property management system designed for property owners 
 
 ### Clone the Repository
 ```bash
-git clone [your-repository-url]
+git clone https://github.com/SimoDod/ShaFi-FrontEnd.git
 ```
 
 ### Setup & Installation
