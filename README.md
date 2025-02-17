@@ -1,9 +1,9 @@
 # ShaFi FrontEnd
 
 ## Related Projects
-In order for the project to work correctly you need to connect to BackEnd service.
-Here you can find a guide how to run it: 
-ShaFi-BackEnd ([https://github.com/SimoDod/ShaFi-BackEnd])
+In order for the project to work correctly, you need to connect to the BackEnd service. Follow the guide below to run it:
+
+- **ShaFi-BackEnd**: [GitHub Repository](https://github.com/SimoDod/ShaFi-BackEnd)
 
 ## Overview
 ShaFi is a personalized property management system designed for property owners to manage rentals similar to Airbnb. The system includes:
