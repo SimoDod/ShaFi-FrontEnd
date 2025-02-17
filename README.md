@@ -28,20 +28,23 @@ ShaFi is a personalized property management system designed for property owners 
 ### Clone the Repository
 ```bash
 git clone [your-repository-url]
+```
 
 ### Setup & Installation
 ```bash
 npm install
-
+```
 ### Environment Configuration
 
-Create a .env file in the root directory with the following content:
+### Create a .env file in the root directory with the following content:
 ```bash
 VITE_AZURE_API_BASE_URL=http://localhost:8080/api/
+```
 
 ### Run the project
 ```bash
 npm run dev
+```
 
 ### Development Environment
 Ensure you have Node.js installed.
