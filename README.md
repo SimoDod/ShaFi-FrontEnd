@@ -39,7 +39,7 @@ npm install
 ```
 ### Environment Configuration
 
-### Create a .env file in the root directory with the following content:
+Create a .env file in the root directory with the following content:
 ```bash
 VITE_AZURE_API_BASE_URL=http://localhost:8080/api/
 ```
