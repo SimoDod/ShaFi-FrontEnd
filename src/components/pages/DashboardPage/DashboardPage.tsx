@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from "../../../store/store";
 import InfoCalendar from "../../InfoCalendar/InfoCalendar";
 import fetchAllReservationDatesThunk from "../../../store/thunks/reservation/fetchAllReservationDatesThunk";
 import NavigationMenu from "../../NavigationMenu/NavigationMenu";
+import ImageCarousel from "../../ImageCarousel/ImageCarousel";
 
 const DashboardPage = () => {
   const dispatch = useAppDispatch();
@@ -31,8 +32,11 @@ const DashboardPage = () => {
       <div className="flex justify-center py-2">
         <NavigationMenu />
       </div>
-      <div className="flex justify-center items-center m-1">
+      <div className="flex justify-center items-center mx-1">
         {!error && <InfoCalendar reservedDates={reservedDates} />}
+      </div>
+      <div className="w-full flex justify-center px-1 pb-4">
+        <ImageCarousel />
       </div>
     </div>
   );
