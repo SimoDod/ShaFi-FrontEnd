@@ -6,10 +6,10 @@ const images = Array(7)
 
 const ImageCarousel = () => {
   return (
-    <div className="carousel max-w-lg max-h-[600px] rounded-3xl">
+    <div className="carousel max-w-lg max-h-[450px] rounded-3xl">
       {images.map((image, index) => (
         <div id={"slide" + index} className="carousel-item relative w-full">
-          <img src={image} className="w-full" />
+          <img src={image} className="w-full object-cover" />
           <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
             <a
               href={"#slide" + (index - 1)}

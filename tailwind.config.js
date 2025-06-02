@@ -35,7 +35,22 @@ export default {
   },
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
   daisyui: {
-    themes: ["light", "dark", "cupcake", "night", "dim", "lemonade"],
+    themes: [
+      "light",
+      "dark",
+      "cupcake",
+      "night",
+      "dim",
+      "lemonade",
+      "autumn",
+      "dracula",
+      "valentine",
+      "retro",
+      "cyberpunk",
+      "forest",
+      "aqua",
+      "lofi",
+    ],
   },
   safelist: [
     "divider-default",

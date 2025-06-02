@@ -5,4 +5,12 @@ export enum ThemeType {
   NIGHT = "night",
   DIM = "dim",
   LEMONADE = "lemonade",
+  AUTUMN = "autumn",
+  DRACULA = "dracula",
+  VALENTINE = "valentine",
+  RETRO = "retro",
+  CYBERPUNK = "cyberpunk",
+  FOREST = "forest",
+  AQUA = "aqua",
+  LOFI = "lofi",
 }
