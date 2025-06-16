@@ -9,7 +9,7 @@ type Props = {
 
 const LedgerTileWrapper = ({ onClick, onDelete, children }: Props) => {
   return (
-    <div className="card bg-base-100 m-2 mb-5 cursor-pointer transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+    <div className="card bg-base-100 bg-opacity-70 backdrop-blur m-2 mb-5 cursor-pointer transition-transform duration-300 hover:scale-105 hover:shadow-lg">
       {onDelete && (
         <Icon
           className="absolute top-1 right-1 p-4"

@@ -106,6 +106,24 @@ export const en = {
     },
     dashboard: {
       reservedDates: "Reserved dates",
+      double: "Double",
+      map: "Map",
+      location: {
+        title: "Location",
+        text: "Just a few minutes' walk from the sea! The apartment is located 7 minutes from the golden dunes of Sunny Beach and about 11 minutes from the beach itself. A convenient alley leads you directly to the free beach area.",
+      },
+      convenience: {
+        title: "Amenities",
+        text: "Spacious and comfortable, the apartment has an entrance hall, a bathroom with toilet, a fully equipped kitchenette, two separate bedrooms, and a large terrace – perfect for morning coffee or evening relaxation. Suitable for up to 4 adults.",
+      },
+      kitchenware: {
+        title: "Kitchen & Appliances",
+        text: "The kitchen is equipped with everything you need – refrigerator, microwave, coffee machine, stovetop and oven. All essential kitchenware is available: plates, cups, pots, utensils, and more.",
+      },
+      comfort: {
+        title: "Comfort",
+        text: "Each room has air conditioning and a TV to ensure maximum comfort during your stay.",
+      },
     },
     classColors: {
       default: "Default",

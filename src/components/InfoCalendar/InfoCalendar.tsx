@@ -1,7 +1,6 @@
 import Calendar from "react-calendar";
 import WindowCard from "../WindowCard/WindowCard";
 import clsx from "clsx";
-import { useNavigate } from "react-router-dom";
 import getDateRange from "../../utils/date/getDateRange";
 import {
   formatISO,
@@ -16,18 +15,18 @@ import {
   faArrowRight,
   faCalendar,
   faMapLocationDot,
-  faRefresh,
 } from "@fortawesome/free-solid-svg-icons";
 import "./InfoCalendar.css";
 import { useEffect, useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
+import { useTranslation } from "react-i18next";
 
 const InfoCalendar = ({ reservedDates = [] }: { reservedDates?: string[] }) => {
-  const navigate = useNavigate();
   const { pastDate, futureDate } = getDateRange(1, 13);
   const [isDoubleView, setIsDoubleView] = useState(false);
   const [isMap, setIsMap] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
+  const { i18n, t } = useTranslation();
 
   const isReserved = (date: Date) =>
     reservedDates.includes(formatISO(date, { representation: "date" }));
@@ -43,7 +42,7 @@ const InfoCalendar = ({ reservedDates = [] }: { reservedDates?: string[] }) => {
   }, [isMap]);
 
   return (
-    <WindowCard headingGap={0} opacity="90" background="base-300">
+    <WindowCard headingGap={0} opacity="75" background="base-100" blur>
       <div className="w-full max-w-lg rounded-lg p-4 pt-0 font-semibold">
         <Calendar
           tileClassName={({ date, activeStartDate, view }) =>
@@ -63,6 +62,7 @@ const InfoCalendar = ({ reservedDates = [] }: { reservedDates?: string[] }) => {
           minDate={pastDate}
           maxDate={futureDate}
           showDoubleView={isDoubleView}
+          locale={i18n.language}
           nextLabel={
             <span className="btn btn-circle text-xl font-bold text-primary w-14 h-14">
               <Icon icon={faArrowRight} />
@@ -79,22 +79,23 @@ const InfoCalendar = ({ reservedDates = [] }: { reservedDates?: string[] }) => {
         />
       </div>
       <div className="flex justify-end p-2 gap-4">
-        <button className="btn btn-circle btn-link" onClick={() => navigate(0)}>
-          <Icon icon={faRefresh} className="h-5" />
-        </button>
         <button
-          className={`btn btn-circle btn-${isDoubleView ? "neutral" : "link"}`}
+          className={`btn btn-sm btn-${isDoubleView ? "neutral" : "link"}`}
           onClick={() => setIsDoubleView((prev) => !prev)}
         >
-          <Icon icon={faCalendar} className="h-5" />
+          <Icon icon={faCalendar} className="h-4 mr-2" />
+          {t("dashboard.double")}
         </button>
+
         <button
-          className={`btn btn-circle btn-${isMap ? "neutral" : "link"}`}
+          className={`btn btn-sm btn-${isMap ? "neutral" : "link"}`}
           onClick={() => setIsMap((prev) => !prev)}
         >
-          <Icon icon={faMapLocationDot} className="h-5" />
+          <Icon icon={faMapLocationDot} className="h-4 mr-2" />
+          {t("dashboard.map")}
         </button>
       </div>
+
       <Transition
         show={isMap}
         enter="transition-all ease-in-out duration-600"

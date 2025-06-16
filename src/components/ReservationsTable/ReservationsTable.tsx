@@ -27,7 +27,7 @@ const ReservationsTable = ({ reservations }: Props) => {
 
   return (
     <div className="overflow-x-auto">
-      <table className="table table-zebra bg-base-300">
+      <table className="table table-zebra bg-base-300 bg-opacity-85 backdrop-blur">
         <thead>
           <tr>
             <th className="text text-primary">{t("common.note")}</th>

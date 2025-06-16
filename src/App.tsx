@@ -13,7 +13,6 @@ const App = () => {
         backgroundAttachment: "fixed",
       }}
     >
-      <div className="absolute top-0 left-0 w-screen h-screen bg-black opacity-10" />
       <div className="relative z-10">
         <Router />
       </div>

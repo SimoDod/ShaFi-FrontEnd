@@ -100,7 +100,7 @@ const ReservationsPage = () => {
       <div className="ml-1 mr-1 2xl:pr-40 2xl:pl-40">
         <WindowCard
           heading={
-            <h2 className="text text-3xl text-base-300">
+            <h2 className="text text-2xl text-base-300">
               {t("reservationsPage.reservations")}
             </h2>
           }

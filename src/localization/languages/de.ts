@@ -108,6 +108,24 @@ export const de = {
     },
     dashboard: {
       reservedDates: "Reservierte Daten",
+      double: "Doppel",
+      map: "Karte",
+      location: {
+        title: "Lage",
+        text: "Nur wenige Gehminuten vom Meer entfernt! Die Wohnung befindet sich 7 Minuten von den goldenen Dünen von Sonnenstrand und etwa 11 Minuten vom eigentlichen Strand entfernt. Ein bequemer Weg führt Sie direkt zur freien Strandzone.",
+      },
+      convenience: {
+        title: "Ausstattung",
+        text: "Geräumig und komfortabel – die Wohnung verfügt über einen Flur, ein Badezimmer mit WC, eine voll ausgestattete Kochnische, zwei separate Schlafzimmer und eine große Terrasse – ideal für den Morgenkaffee oder die abendliche Entspannung. Geeignet für bis zu 4 Erwachsene.",
+      },
+      kitchenware: {
+        title: "Küche & Technik",
+        text: "Die Küche ist mit allem ausgestattet, was Sie brauchen – Kühlschrank, Mikrowelle, Kaffeemaschine, Kochfeld und Ofen. Alle wichtigen Küchenutensilien sind vorhanden: Teller, Tassen, Töpfe, Besteck und mehr.",
+      },
+      comfort: {
+        title: "Komfort",
+        text: "Jedes Zimmer verfügt über eine Klimaanlage und einen Fernseher, um maximalen Komfort während Ihres Aufenthalts zu gewährleisten.",
+      },
     },
     classColors: {
       default: "Standard",

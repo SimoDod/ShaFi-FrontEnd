@@ -7,7 +7,8 @@ type Props = {
   contentClass?: string;
   headingGap?: number;
   opacity?: string;
-  background?: "transparent" | "primary" | "secondary" | "base-300";
+  background?: "transparent" | "primary" | "secondary" | "base-100";
+  blur?: boolean;
 } & PropsWithChildren;
 
 const WindowCard = ({
@@ -19,10 +20,11 @@ const WindowCard = ({
   headingGap = 4,
   opacity = "100",
   background = "transparent",
+  blur = false,
 }: Props) => {
   return (
     <div
-      className={`mockup-window bg-${background} mb-8 mt-4 overflow-auto opacity-${opacity}`}
+      className={`mockup-window bg-${background} mb-8 mt-4 overflow-auto bg-opacity-${opacity} ${blur ? "backdrop-blur" : ""}`}
     >
       <div
         className={`flex justify-between items-center flex-wrap pl-4 pr-4 mb-${headingGap}`}

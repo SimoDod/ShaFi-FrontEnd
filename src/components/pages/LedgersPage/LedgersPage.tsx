@@ -77,7 +77,7 @@ const LedgersPage = () => {
         <WindowCard
           contentClass="flex flex-wrap justify-evenly"
           heading={
-            <h2 className="text text-3xl text-base-300">
+            <h2 className="text text-2xl text-base-300">
               {t("ledgersPage.ledgers")}
             </h2>
           }

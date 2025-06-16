@@ -5,13 +5,23 @@ import { en } from "./languages/en";
 import { de } from "./languages/de";
 import { bg } from "./languages/bg";
 
-void i18n.use(LanguageDetector).use(initReactI18next).init({
-  fallbackLng: "en",
-  resources: {
-    en,
-    de,
-    bg
-  },
-});
+if (!localStorage.getItem("i18nextLng")) {
+  localStorage.setItem("i18nextLng", "bg");
+}
+
+void i18n
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    fallbackLng: "bg",
+    resources: {
+      en,
+      de,
+      bg,
+    },
+    interpolation: {
+      escapeValue: false,
+    },
+  });
 
 export default i18n;
