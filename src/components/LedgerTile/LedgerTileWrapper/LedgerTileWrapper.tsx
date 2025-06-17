@@ -12,7 +12,7 @@ const LedgerTileWrapper = ({ onClick, onDelete, children }: Props) => {
     <div className="card bg-base-100 bg-opacity-70 backdrop-blur cursor-pointer transition-transform duration-300 hover:scale-105 hover:shadow-lg">
       {onDelete && (
         <Icon
-          className="absolute top-1 right-1 p-2"
+          className="absolute top-0 right-0 p-2"
           icon={faX}
           onClick={onDelete}
         />
