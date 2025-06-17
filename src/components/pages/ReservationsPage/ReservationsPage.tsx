@@ -97,7 +97,7 @@ const ReservationsPage = () => {
           />
         </Modal>
       )}
-      <div className="ml-1 mr-1 px-10 sm:px-16 md:px-24 lg:px-36 xl:px-48 2xl:px-64 3xl:px-[320px] 4xl:px-[400px]">
+      <div className="mx-2 lg:px-36 xl:px-48 2xl:px-80 3xl:px-[400px] 4xl:px-[500px]">
         <WindowCard
           heading={
             <h2 className="text text-2xl text-base-300">
