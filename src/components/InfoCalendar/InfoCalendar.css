@@ -12,3 +12,9 @@
   align-items: center; 
   flex-wrap: wrap;
 }
+
+.react-calendar__tile:disabled{
+  opacity: 0.33;
+  pointer-events: none;
+  cursor: not-allowed;
+}

@@ -75,7 +75,7 @@ const LedgersPage = () => {
       )}
       <div className="mx-2 2xl:pr-40 2xl:pl-40">
         <WindowCard
-          contentClass="flex flex-wrap justify-evenly"
+          contentClass="flex flex-wrap justify-evenly gap-2"
           heading={
             <h2 className="text text-2xl text-base-300">
               {t("ledgersPage.ledgers")}

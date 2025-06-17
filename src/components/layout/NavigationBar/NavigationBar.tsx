@@ -39,7 +39,7 @@ const NavigationBar = () => {
         </Modal>
       )}
 
-      <div className="navbar bg-base-100 bg-opacity-60 backdrop-blur shadow-md px-4 py-0 z-50 relative">
+      <div className="navbar sticky top-0 bg-base-100 bg-opacity-60 backdrop-blur shadow-md px-4 py-0 z-50">
         <div className="text-2xl font-bold navbar-start">
           <button
             className="mr-4"
@@ -54,26 +54,26 @@ const NavigationBar = () => {
         </div>
 
         <div className="navbar-center">
-          <ul className="menu menu-horizontal rounded-box">
-            {navItems.map(({ icon, label, onClick, isVisible, isActive }) =>
-              isVisible ? (
-                <li
-                  key={label}
-                  className={`${
-                    isActive ? "bg-primary text-base-200" : ""
-                  } hover:bg-secondary hover:text-base-200 rounded`}
-                >
-                  <a
-                    className="tooltip tooltip-bottom"
-                    data-tip={label}
+          {authToken ? (
+            <ul className="menu menu-horizontal gap-2">
+              {navItems.map(({ icon, label, onClick, isActive }) => (
+                <li key={label}>
+                  <button
                     onClick={onClick}
+                    className={`
+              btn btn-circle transition-colors
+              ${isActive ? "bg-primary text-base-100" : "bg-base-200 text-base-content"}
+              hover:bg-secondary hover:text-base-100
+              tooltip tooltip-bottom
+            `}
+                    data-tip={label}
                   >
                     <Icon icon={icon} className="size-4" />
-                  </a>
+                  </button>
                 </li>
-              ) : null
-            )}
-          </ul>
+              ))}
+            </ul>
+          ) : null}
         </div>
 
         <div className="navbar-end gap-2">

@@ -6460,20 +6460,8 @@ details.collapse summary::-webkit-details-marker {
   z-index: 50;
 }
 
-.z-\[1000\] {
-  z-index: 1000;
-}
-
 .z-\[1\] {
   z-index: 1;
-}
-
-.z-\[5000\] {
-  z-index: 5000;
-}
-
-.z-\[9999\] {
-  z-index: 9999;
 }
 
 .col-span-1 {
@@ -7140,6 +7128,10 @@ details.collapse summary::-webkit-details-marker {
   width: 11rem;
 }
 
+.w-48 {
+  width: 12rem;
+}
+
 .w-5 {
   width: 1.25rem;
 }
@@ -7216,6 +7208,22 @@ details.collapse summary::-webkit-details-marker {
 
 .w-svw {
   width: 100svw;
+}
+
+.w-\[190px\] {
+  width: 190px;
+}
+
+.w-\[188px\] {
+  width: 188px;
+}
+
+.w-\[180px\] {
+  width: 180px;
+}
+
+.w-\[175px\] {
+  width: 175px;
 }
 
 .min-w-20 {
@@ -9605,6 +9613,12 @@ details.collapse summary::-webkit-details-marker {
   transition-duration: 150ms;
 }
 
+.transition-colors {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
 .transition-opacity {
   transition-property: opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -9819,6 +9833,11 @@ details.collapse summary::-webkit-details-marker {
   background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity, 1)));
 }
 
+.hover\:bg-base-200:hover {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity, 1)));
+}
+
 .hover\:bg-blue-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(37 99 235 / var(--tw-bg-opacity, 1));
@@ -9914,19 +9933,14 @@ details.collapse summary::-webkit-details-marker {
   background-color: rgb(202 138 4 / var(--tw-bg-opacity, 1));
 }
 
-.hover\:bg-base-200:hover {
-  --tw-bg-opacity: 1;
-  background-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity, 1)));
-}
-
 .hover\:text-amber-700:hover {
   --tw-text-opacity: 1;
   color: rgb(180 83 9 / var(--tw-text-opacity, 1));
 }
 
-.hover\:text-base-200:hover {
+.hover\:text-base-100:hover {
   --tw-text-opacity: 1;
-  color: var(--fallback-b2,oklch(var(--b2)/var(--tw-text-opacity, 1)));
+  color: var(--fallback-b1,oklch(var(--b1)/var(--tw-text-opacity, 1)));
 }
 
 .hover\:text-blue-700:hover {

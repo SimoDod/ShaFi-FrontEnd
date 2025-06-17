@@ -25,9 +25,9 @@ const AuthenticationPage = () => {
     <div className="hero bg-base-200 min-h-screen flex items-center justify-center">
       <div className="hero-content flex flex-col lg:flex-row-reverse lg:justify-between lg:items-center p-4">
         <div className="text-center lg:text-left lg:w-1/2 px-4 mb-6 lg:mb-0 min-w-fit">
-          <h1 className="text-5xl">
-            {t("login.admin")}
-            <span className="text-primary">{t("login.panel")}!</span>
+          <h1 className="text-3xl font-bold py-6">
+            {t("login.admin")}{" "}
+            <span className="text-primary">{t("login.panel")}</span>
           </h1>
           {/* <h1 className="text-5xl font-bold py-6">
             {t(`${authMode}.keyWord`)}{" "}
