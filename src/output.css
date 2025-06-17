@@ -6436,6 +6436,14 @@ details.collapse summary::-webkit-details-marker {
   top: 1.5rem;
 }
 
+.top-5 {
+  top: 1.25rem;
+}
+
+.top-3 {
+  top: 0.75rem;
+}
+
 .isolate {
   isolation: isolate;
 }
