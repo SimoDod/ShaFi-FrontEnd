@@ -8763,6 +8763,16 @@ details.collapse summary::-webkit-details-marker {
   padding-right: 16rem;
 }
 
+.px-60 {
+  padding-left: 15rem;
+  padding-right: 15rem;
+}
+
+.px-96 {
+  padding-left: 24rem;
+  padding-right: 24rem;
+}
+
 .pb-0 {
   padding-bottom: 0px;
 }
@@ -10733,6 +10743,11 @@ details.collapse summary::-webkit-details-marker {
     padding-left: 12rem;
     padding-right: 12rem;
   }
+
+  .xl\:px-60 {
+    padding-left: 15rem;
+    padding-right: 15rem;
+  }
 }
 
 @media (min-width: 1536px) {
@@ -10757,6 +10772,11 @@ details.collapse summary::-webkit-details-marker {
   .\32xl\:px-64 {
     padding-left: 16rem;
     padding-right: 16rem;
+  }
+
+  .\32xl\:px-96 {
+    padding-left: 24rem;
+    padding-right: 24rem;
   }
 
   .\32xl\:pl-40 {
