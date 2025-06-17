@@ -26,7 +26,7 @@ const LedgerTile = ({ title, total, id, color = "accent", onClick }: Props) => {
       }
     >
       <div className="h-full flex items-center">
-        <h2 className="card-title text-primary">{title}</h2>
+        <h3 className="card-title text-primary">{title}</h3>
       </div>
 
       <div className="w-full">
