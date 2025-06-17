@@ -7069,6 +7069,10 @@ details.collapse summary::-webkit-details-marker {
   min-height: 100vh;
 }
 
+.w-0 {
+  width: 0px;
+}
+
 .w-1 {
   width: 0.25rem;
 }
@@ -7229,10 +7233,6 @@ details.collapse summary::-webkit-details-marker {
 
 .w-svw {
   width: 100svw;
-}
-
-.w-0 {
-  width: 0px;
 }
 
 .min-w-20 {
@@ -8756,6 +8756,10 @@ details.collapse summary::-webkit-details-marker {
   padding-bottom: 1.25rem;
 }
 
+.pb-6 {
+  padding-bottom: 1.5rem;
+}
+
 .pb-8 {
   padding-bottom: 2rem;
 }
@@ -8854,10 +8858,6 @@ details.collapse summary::-webkit-details-marker {
 
 .pt-5 {
   padding-top: 1.25rem;
-}
-
-.pb-6 {
-  padding-bottom: 1.5rem;
 }
 
 .text-left {

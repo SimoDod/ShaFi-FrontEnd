@@ -31,7 +31,7 @@ const LedgerTile = ({ title, total, id, color = "accent", onClick }: Props) => {
 
       <div className="w-full">
         <div className={`divider divider-${color} text-lg my-0`} />
-        <div className="text-xl">{total}</div>
+        <div className="text-lg">{total}</div>
       </div>
     </LedgerTileWrapper>
   );
