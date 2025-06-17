@@ -24,7 +24,7 @@ const WindowCard = ({
 }: Props) => {
   return (
     <div
-      className={`mockup-window bg-${background} mb-8 mt-4 overflow-auto bg-opacity-${opacity} ${blur ? "backdrop-blur" : ""}`}
+      className={`mockup-window bg-${background} mb-8 mt-4 overflow-auto pb-2 bg-opacity-${opacity} ${blur ? "backdrop-blur" : ""}`}
     >
       <div
         className={`flex justify-between items-center flex-wrap pl-4 pr-4 mb-${headingGap}`}

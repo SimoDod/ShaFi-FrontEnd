@@ -33,8 +33,8 @@ const ReservationsTable = ({ reservations }: Props) => {
         <thead>
           <tr>
             <th className="text text-primary">{t("common.note")}</th>
-            <th className="text text-primary">{t("common.reserved")}</th>
-            <th className="text text-primary">{t("common.paid")}</th>
+            <th className="text text-primary text-center">{t("common.reserved")}</th>
+            <th className="text text-primary text-center">{t("common.paid")}</th>
           </tr>
         </thead>
         <tbody>
@@ -56,14 +56,14 @@ const ReservationsTable = ({ reservations }: Props) => {
               }) => (
                 <tr key={_id}>
                   <td>{note}</td>
-                  <td className="text-center">
+                  <td className="text-center w-10">
                     <div>
                       {format(
                         parseISO(reservationStart),
                         dateFormats.defaultSlash
                       )}
                     </div>
-                    <div className="divider divider-primary m-0 ml-1" />
+                    <div className="divider divider-primary m-0 " />
                     <div>
                       {format(
                         parseISO(reservationEnd),
@@ -71,8 +71,8 @@ const ReservationsTable = ({ reservations }: Props) => {
                       )}
                     </div>
                   </td>
-                  <td className="text-center">{paid}</td>
-                  <td className="text-center px-2">
+                  <td className="text-center w-10">{paid}</td>
+                  <td className="text-center px-2 w-10">
                     <Menu as="div" className="relative inline-block text-left">
                       <MenuButton className="btn btn-sm btn-ghost">
                         <Icon icon={faEllipsisVertical} className="h-4" />
