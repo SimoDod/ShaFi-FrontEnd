@@ -75,7 +75,7 @@ const LedgersPage = () => {
       )}
       <div className="mx-2 2xl:pr-40 2xl:pl-40">
         <WindowCard
-          contentClass="flex flex-wrap justify-evenly gap-2"
+          contentClass="flex flex-wrap justify-evenly gap-2 pb-4"
           heading={
             <h2 className="text text-2xl text-base-300">
               {t("ledgersPage.ledgers")}
@@ -90,25 +90,25 @@ const LedgersPage = () => {
             />
           }
         >
-          {ledgers.map(({ color, _id, title, total }) => (
-            <LedgerTile
-              key={_id}
-              id={_id}
-              color={color}
+            {ledgers.map(({ color, _id, title, total }) => (
+              <LedgerTile
+                key={_id}
+                id={_id}
+                color={color}
+                onClick={() =>
+                  navigate(`${routePaths.ledgers.path}${year}/${_id}`)
+                }
+                title={title}
+                total={total}
+              />
+            ))}
+            <CreateLedgerTile
               onClick={() =>
-                navigate(`${routePaths.ledgers.path}${year}/${_id}`)
+                navigate(
+                  `${routePaths.ledgers.path}${year}${routePaths.ledgers.create}`
+                )
               }
-              title={title}
-              total={total}
             />
-          ))}
-          <CreateLedgerTile
-            onClick={() =>
-              navigate(
-                `${routePaths.ledgers.path}${year}${routePaths.ledgers.create}`
-              )
-            }
-          />
         </WindowCard>
       </div>
     </>
