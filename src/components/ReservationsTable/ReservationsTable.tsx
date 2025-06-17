@@ -1,6 +1,7 @@
 import {
   faBoxOpen,
   faEdit,
+  faEllipsisVertical,
   faTrashCan,
 } from "@fortawesome/free-solid-svg-icons";
 import Icon from "../common/Icon/Icon";
@@ -13,6 +14,7 @@ import useDialog from "../../hooks/useDialog";
 import { useNavigate, useParams } from "react-router-dom";
 import { routePaths } from "../../routerConfig";
 import { useTranslation } from "react-i18next";
+import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 
 type Props = {
   reservations: ReservationResponse[];
@@ -33,7 +35,6 @@ const ReservationsTable = ({ reservations }: Props) => {
             <th className="text text-primary">{t("common.note")}</th>
             <th className="text text-primary">{t("common.reserved")}</th>
             <th className="text text-primary">{t("common.paid")}</th>
-            <th className="text text-primary">{t("common.actions")}</th>
           </tr>
         </thead>
         <tbody>
@@ -55,14 +56,14 @@ const ReservationsTable = ({ reservations }: Props) => {
               }) => (
                 <tr key={_id}>
                   <td>{note}</td>
-                  <td>
+                  <td className="text-center">
                     <div>
                       {format(
                         parseISO(reservationStart),
                         dateFormats.defaultSlash
                       )}
                     </div>
-                    <div className="divider divider-primary w-16 m-0 ml-1" />
+                    <div className="divider divider-primary m-0 ml-1" />
                     <div>
                       {format(
                         parseISO(reservationEnd),
@@ -70,29 +71,42 @@ const ReservationsTable = ({ reservations }: Props) => {
                       )}
                     </div>
                   </td>
-                  <td>{paid}</td>
-                  <td>
-                    <button
-                      className="btn btn-link"
-                      onClick={() =>
-                        navigate(
-                          `${routePaths.reservations.path}${year}/${_id}`
-                        )
-                      }
-                    >
-                      <Icon icon={faEdit} />
-                    </button>
-                    <button
-                      className="btn btn-link"
-                      onClick={() =>
-                        openDialog("delete", {
-                          onConfirm: () =>
-                            dispatch(deleteReservationThunk(_id)),
-                        })
-                      }
-                    >
-                      <Icon icon={faTrashCan} />
-                    </button>
+                  <td className="text-center">{paid}</td>
+                  <td className="text-center px-2">
+                    <Menu as="div" className="relative inline-block text-left">
+                      <MenuButton className="btn btn-sm btn-ghost">
+                        <Icon icon={faEllipsisVertical} className="h-4" />
+                      </MenuButton>
+
+                      <MenuItems className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-base-100 shadow-lg ring-1 ring-black/5 focus:outline-none">
+                        <MenuItem
+                          as="button"
+                          onClick={() =>
+                            navigate(
+                              `${routePaths.reservations.path}${year}/${_id}`
+                            )
+                          }
+                          className="ui-active:bg-primary ui-active:text-primary-content text-sm text-base-content w-full px-4 py-2 text-left flex items-center gap-2 rounded"
+                        >
+                          <Icon icon={faEdit} className="h-4" />
+                          {t("buttons.edit")}
+                        </MenuItem>
+
+                        <MenuItem
+                          as="button"
+                          onClick={() =>
+                            openDialog("delete", {
+                              onConfirm: () =>
+                                dispatch(deleteReservationThunk(_id)),
+                            })
+                          }
+                          className="text-error ui-active:bg-error ui-active:text-error-content text-sm w-full px-4 py-2 text-left flex items-center gap-2 rounded"
+                        >
+                          <Icon icon={faTrashCan} className="h-4 text-error" />
+                          {t("buttons.delete")}
+                        </MenuItem>
+                      </MenuItems>
+                    </Menu>
                   </td>
                 </tr>
               )

@@ -22,7 +22,7 @@ const Modal = ({
       <div
         className={`modal-box pt-0 bg-opacity-75 backdrop-blur xxs:w-[98%] xxxs:w-[98%] ${!centered && "mt-10"}`}
       >
-        <div className="flex sticky top-0 z-10 bg-base-300 bg-opacity-75 backdrop-blur justify-between items-center h-8 py-6 px-3 w-full rounded-b-xl">
+        <div className="flex sticky top-0 z-10 bg-base-100 bg-opacity-55 backdrop-blur justify-between items-center h-8 py-6 px-3 w-full rounded-b-xl">
           <h3 className="font-bold text-lg">{title}</h3>
           <button onClick={onClose} className="btn btn-link pt-4 pr-0 items-start">
             <Icon
