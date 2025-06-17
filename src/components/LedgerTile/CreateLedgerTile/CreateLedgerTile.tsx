@@ -9,7 +9,9 @@ type Props = {
 const CreateLedgerTile = ({ onClick }: Props) => {
   return (
     <LedgerTileWrapper onClick={onClick}>
-      <Icon icon={faPlusCircle} className="text-7xl" />
+      <div className="h-full flex items-center">
+        <Icon icon={faPlusCircle} className="text-7xl" />
+      </div>
     </LedgerTileWrapper>
   );
 };

@@ -19,7 +19,7 @@ const LedgerTileWrapper = ({ onClick, onDelete, children }: Props) => {
       )}
       <div
         onClick={onClick}
-        className="card-body w-[175px] h-36 items-center justify-center text-center p-3"
+        className="card-body w-44 h-32 items-center justify-between text-center p-3"
       >
         {children}
       </div>
