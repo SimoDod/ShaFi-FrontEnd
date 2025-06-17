@@ -57,6 +57,8 @@ export const en = {
       toContinueUsing: "To continue using our platform, please",
       action: "log in.",
       hasAccount: "If you don't have an account,",
+      admin: "Admin",
+      panel: "panel",
     },
     signUp: {
       keyWord: "Sign Up",

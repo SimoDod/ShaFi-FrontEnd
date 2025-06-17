@@ -22,7 +22,7 @@ import { Transition } from "@headlessui/react";
 import { useTranslation } from "react-i18next";
 
 const InfoCalendar = ({ reservedDates = [] }: { reservedDates?: string[] }) => {
-  const { pastDate, futureDate } = getDateRange(1, 13);
+  const { pastDate, futureDate } = getDateRange(12, 24);
   const [isDoubleView, setIsDoubleView] = useState(false);
   const [isMap, setIsMap] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
@@ -63,6 +63,18 @@ const InfoCalendar = ({ reservedDates = [] }: { reservedDates?: string[] }) => {
           maxDate={futureDate}
           showDoubleView={isDoubleView}
           locale={i18n.language}
+          tileDisabled={({ date, view }) => {
+            if (view === "year") {
+              return date < pastDate || date > futureDate;
+            }
+            if (view === "decade") {
+              return (
+                date.getFullYear() < pastDate.getFullYear() ||
+                date.getFullYear() > futureDate.getFullYear()
+              );
+            }
+            return false;
+          }}
           nextLabel={
             <span className="btn btn-circle text-xl font-bold text-primary w-14 h-14">
               <Icon icon={faArrowRight} />

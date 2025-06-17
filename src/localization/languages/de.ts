@@ -56,6 +56,8 @@ export const de = {
       toContinueUsing: "Um unsere Plattform weiter zu nutzen, bitte",
       action: "melden Sie sich an.",
       hasAccount: "Wenn Sie noch kein Konto haben,",
+      admin: "Admin",
+      panel: "bedienfeld",
     },
     signUp: {
       keyWord: "Registrieren",

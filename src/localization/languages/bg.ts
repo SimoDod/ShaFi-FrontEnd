@@ -56,6 +56,8 @@ export const bg = {
       toContinueUsing: "За да продължите да използвате нашата платформа, моля",
       action: "влезте.",
       hasAccount: "Ако нямате акаунт,",
+      admin: "Админски",
+      panel: "панел"
     },
     signUp: {
       keyWord: "Регистрация",
