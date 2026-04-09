@@ -75,7 +75,7 @@ const LedgersPage = () => {
       )}
       <div className="mx-auto px-4 max-w-screen-lg animate-slide-up">
         <WindowCard
-          contentClass="flex flex-wrap justify-evenly gap-3 pb-6"
+          contentClass="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 px-4 pb-6"
           heading={
             <h2 className="text-2xl font-semibold text-base-content/80 tracking-tight">
               {t("ledgersPage.ledgers")}

@@ -64,7 +64,7 @@ const NavigationBar = () => {
                     className={`
                       btn btn-sm btn-ghost rounded-xl gap-2 transition-all duration-300
                       ${isActive
-                        ? "bg-primary text-primary-content shadow-md shadow-primary/20"
+                        ? "bg-primary text-primary-content shadow-md shadow-primary/20 hover:bg-primary hover:text-primary-content"
                         : "hover:bg-base-200"
                       }
                     `}
@@ -81,21 +81,21 @@ const NavigationBar = () => {
           {/* Mobile nav */}
           <div className="navbar-center flex sm:hidden">
             {authToken ? (
-              <div className="flex items-center gap-0.5 p-0.5 rounded-xl bg-base-200/50 backdrop-blur-sm">
+              <div className="flex items-center gap-1 p-1 rounded-xl bg-base-200/50 backdrop-blur-sm">
                 {navItems.map(({ icon, onClick, isActive, label }) => (
                   <button
                     key={label}
                     onClick={onClick}
                     className={`
-                      btn btn-xs btn-ghost btn-circle transition-all duration-300
+                      btn btn-sm btn-ghost btn-circle transition-all duration-300
                       ${isActive
-                        ? "bg-primary text-primary-content shadow-sm shadow-primary/20"
+                        ? "bg-primary text-primary-content shadow-sm shadow-primary/20 hover:bg-primary hover:text-primary-content"
                         : "hover:bg-base-200"
                       }
                     `}
                     title={label}
                   >
-                    <Icon icon={icon} className="size-3" />
+                    <Icon icon={icon} className="size-4" />
                   </button>
                 ))}
               </div>
