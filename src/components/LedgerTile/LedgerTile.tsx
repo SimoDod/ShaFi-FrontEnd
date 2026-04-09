@@ -26,12 +26,12 @@ const LedgerTile = ({ title, total, id, color = "accent", onClick }: Props) => {
       }
     >
       <div className="h-full flex items-center">
-        <h3 className="card-title text-primary text-base">{title}</h3>
+        <h3 className="card-title text-primary text-sm font-semibold">{title}</h3>
       </div>
 
       <div className="w-full">
         <div className={`divider divider-${color} text-lg my-0`} />
-        <div className="text-lg">{total}</div>
+        <div className="text-lg font-medium tabular-nums">{total}</div>
       </div>
     </LedgerTileWrapper>
   );

@@ -4,17 +4,31 @@
 
 .react-calendar__navigation {
   display: flex;
+  align-items: center;
 }
 
 .react-calendar__navigation__label {
   display: flex;
-  justify-content: center; 
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
 }
 
-.react-calendar__tile:disabled{
+.react-calendar__tile:disabled {
   opacity: 0.33;
   pointer-events: none;
   cursor: not-allowed;
+}
+
+.react-calendar__tile {
+  padding: 0.5em 0.25em;
+  font-size: 0.875rem;
+}
+
+.react-calendar__month-view__weekdays {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.5;
 }

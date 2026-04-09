@@ -5,19 +5,25 @@ type Props = {
   title: string;
   description: string;
   icon?: IconDefinition;
+  delay?: number;
 };
 
-const InfoCard = ({ title, description, icon }: Props) => {
+const InfoCard = ({ title, description, icon, delay = 0 }: Props) => {
   return (
-    <div className="card bg-base-100 shadow-xl border border-base-300 backdrop-blur bg-opacity-65">
-      <div className="card-body">
-        <h2 className="card-title text-primary gap-2 items-center">
+    <div
+      className="glass-card rounded-2xl hover-lift hover-glow group"
+      style={{ animationDelay: `${delay * 100}ms` }}
+    >
+      <div className="p-5">
+        <h2 className="flex items-center gap-2.5 text-lg font-semibold text-primary mb-2">
           {icon && (
-            <FontAwesomeIcon icon={icon} className="text-accent w-5 h-5" />
+            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary/10 transition-colors duration-300 group-hover:bg-primary/20">
+              <FontAwesomeIcon icon={icon} className="text-primary w-4 h-4" />
+            </span>
           )}
           {title}
         </h2>
-        <p className="text-base leading-relaxed text-base-content">
+        <p className="text-sm leading-relaxed text-base-content/70 ml-[2.625rem]">
           {description}
         </p>
       </div>

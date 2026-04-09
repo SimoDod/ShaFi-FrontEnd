@@ -31,6 +31,18 @@ export default {
         "screen-minus-16rem": "calc(100vh - 16rem)",
         "screen-minus-20rem": "calc(100vh - 20rem)",
       },
+      borderRadius: {
+        "2xl": "1rem",
+        "3xl": "1.5rem",
+      },
+      transitionDuration: {
+        400: "400ms",
+        600: "600ms",
+      },
+      animation: {
+        "fade-in": "fadeIn 0.4s ease-out",
+        "slide-up": "slideUp 0.4s ease-out",
+      },
     },
   },
   plugins: [require("@tailwindcss/typography"), require("daisyui")],

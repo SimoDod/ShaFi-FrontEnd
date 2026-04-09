@@ -97,10 +97,10 @@ const ReservationsPage = () => {
           />
         </Modal>
       )}
-      <div className="mx-2 lg:px-36 xl:px-60 2xl:px-96 3xl:px-[500px] 4xl:px-[600px]">
+      <div className="mx-auto px-4 max-w-screen-lg animate-slide-up">
         <WindowCard
           heading={
-            <h2 className="text text-2xl text-base-300">
+            <h2 className="text-2xl font-semibold text-base-content/80 tracking-tight">
               {t("reservationsPage.reservations")}
             </h2>
           }
@@ -117,9 +117,9 @@ const ReservationsPage = () => {
             reservations={filterReservationsByValue(searchValue, reservations)}
           />
         </WindowCard>
-        <div className="flex justify-between mx-4 mb-8">
+        <div className="flex justify-between items-center mx-1 mb-8 gap-4">
           <button
-            className="btn btn-primary hover:btn-secondary"
+            className="btn btn-primary btn-sm rounded-xl gap-2 shadow-md shadow-primary/20 transition-all duration-300 hover:shadow-lg hover:shadow-primary/30 active:scale-95"
             onClick={() =>
               navigate(
                 `${routePaths.reservations.path}${year}${routePaths.reservations.create}`

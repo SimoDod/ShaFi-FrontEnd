@@ -23,9 +23,12 @@ const Search = ({
   const { t } = useTranslation();
 
   return (
-    <div className="join">
+    <div className="flex items-center gap-0 rounded-xl overflow-hidden glass-card border border-base-content/10">
+      <div className="flex items-center pl-3 text-base-content/40">
+        <Icon icon={faSearch} className="h-3.5" />
+      </div>
       <input
-        className="input input-bordered join-item w-40 focus:border-primary"
+        className="input input-sm border-0 bg-transparent focus:outline-none w-40 placeholder:text-base-content/30"
         onChange={({ target }) => onSearch(target.value)}
         placeholder={t("common.search")}
       />
@@ -35,7 +38,7 @@ const Search = ({
           onChange={({ target }) =>
             onCriteriaSelect && onCriteriaSelect(target.value)
           }
-          className="select select-bordered focus:border-primary join-item"
+          className="select select-sm border-0 bg-transparent focus:outline-none"
         >
           <option value="" />
           {Object.values(criteriaOptions).map((option) => (
@@ -45,9 +48,11 @@ const Search = ({
           ))}
         </select>
       )}
-      <button onClick={onClick} className="btn btn-primary join-item">
-        <Icon icon={faSearch} />
-      </button>
+      {onClick && (
+        <button onClick={onClick} className="btn btn-sm btn-primary rounded-none px-3">
+          <Icon icon={faSearch} className="h-3" />
+        </button>
+      )}
     </div>
   );
 };

@@ -61,8 +61,8 @@ const DateRangePicker = ({
 
   return (
     <div className="form-control">
-      <label className="label">
-        <span className="label-text text-base">{label}</span>
+      <label className="label pb-1">
+        <span className="label-text text-sm font-medium text-base-content/70">{label}</span>
       </label>
       <Datepicker
         value={{ startDate, endDate }}
@@ -70,7 +70,7 @@ const DateRangePicker = ({
         useRange={false}
         minDate={minDate}
         maxDate={maxDate}
-        inputClassName="input focus:border-primary border border-neutral min-w-72 text-primary"
+        inputClassName="input rounded-xl bg-base-200/30 border-base-content/10 focus:border-primary focus:bg-base-100 transition-all duration-200 min-w-72 text-primary"
         readOnly={true}
         disabledDates={excludeDates.map((date) => ({
           startDate: date,
@@ -83,7 +83,7 @@ const DateRangePicker = ({
       <ErrorMessage
         name={name}
         component="div"
-        className="text-red-400 text-xs"
+        className="text-error/80 text-xs mt-1 ml-1"
       />
     </div>
   );

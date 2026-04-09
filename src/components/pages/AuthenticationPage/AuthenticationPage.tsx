@@ -22,30 +22,18 @@ const AuthenticationPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="hero bg-base-200 min-h-screen flex items-center justify-center">
-      <div className="hero-content flex flex-col lg:flex-row-reverse lg:justify-between lg:items-center p-4">
-        <div className="text-center lg:text-left lg:w-1/2 px-4 mb-6 lg:mb-0 min-w-fit">
-          <h1 className="text-3xl font-bold py-6">
+    <div className="min-h-screen flex items-center justify-center p-4">
+      <div className="w-full max-w-4xl flex flex-col lg:flex-row-reverse lg:items-center gap-8 animate-scale-in">
+        <div className="text-center lg:text-left lg:w-1/2 px-4">
+          <h1 className="text-4xl font-bold tracking-tight py-6">
             {t("login.admin")}{" "}
             <span className="text-primary">{t("login.panel")}</span>
           </h1>
-          {/* <h1 className="text-5xl font-bold py-6">
-            {t(`${authMode}.keyWord`)}{" "}
-            <span className="text-primary">{t(`${authMode}.now`)}</span>
-          </h1> */}
-          {/* <p className="py-6 max-w-xl mx-auto lg:mx-0">
-            {t(`${authMode}.toContinueUsing`)} {t(`${authMode}.action`)}
-            <br />
-            {t(`${authMode}.hasAccount`)}{" "}
-            <a onClick={toggleAuthMode} className="link text-primary">
-              {t(`${authMode}.link`)}
-            </a>
-          </p> */}
         </div>
-        <div className="card bg-base-100 lg:min-w-96 shadow-2xl">
-          <div>
+        <div className="glass-card-strong rounded-2xl lg:min-w-96 overflow-hidden">
+          <div className="p-2">
             <button
-              className="btn"
+              className="btn btn-ghost btn-sm rounded-xl gap-2 transition-all duration-300 hover:bg-base-200/60"
               onClick={() => navigate(routePaths.dashboard.path)}
             >
               <Icon icon={faArrowLeft} /> {t("buttons.backButton")}
@@ -56,7 +44,7 @@ const AuthenticationPage = () => {
             validationSchema={validationSchema}
             onSubmit={handleAuthentication}
           >
-            <Form className="card-body">
+            <Form className="px-8 pb-8 pt-2 space-y-4">
               {authModeKeys.map((key) => (
                 <FormikField
                   key={key}
@@ -67,10 +55,10 @@ const AuthenticationPage = () => {
                   }
                 />
               ))}
-              <div className="form-control mt-6 gap-4">
+              <div className="pt-4">
                 <ButtonLoader
                   type="submit"
-                  className="btn-primary"
+                  className="btn-primary w-full rounded-xl shadow-md shadow-primary/20"
                   isLoading={isLoading}
                   disabled={isLoading}
                 >

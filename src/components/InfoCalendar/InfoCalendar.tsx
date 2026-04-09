@@ -42,15 +42,15 @@ const InfoCalendar = ({ reservedDates = [] }: { reservedDates?: string[] }) => {
   }, [isMap]);
 
   return (
-    <WindowCard headingGap={0} opacity="75" background="base-100" blur>
-      <div className="w-full max-w-lg rounded-lg p-4 pt-0 font-semibold">
+    <WindowCard headingGap={0}>
+      <div className="w-full max-w-lg rounded-xl p-4 pt-0 font-semibold">
         <Calendar
           tileClassName={({ date, activeStartDate, view }) =>
-            clsx("mb-2 rounded-md", {
-              "bg-error": isReserved(date),
-              "hover:bg-base-100 hover:text-secondary": !isReserved(date),
-              "border border-primary": isToday(date),
-              "text-primary": isSunday(date) || isSaturday(date),
+            clsx("mb-2 rounded-lg transition-colors duration-200", {
+              "bg-error/80 text-error-content": isReserved(date),
+              "hover:bg-base-200/60": !isReserved(date),
+              "ring-2 ring-primary/50": isToday(date),
+              "text-primary/80": isSunday(date) || isSaturday(date),
               "opacity-20":
                 view === "month" && !isSameMonth(date, activeStartDate),
             })
@@ -76,34 +76,34 @@ const InfoCalendar = ({ reservedDates = [] }: { reservedDates?: string[] }) => {
             return false;
           }}
           nextLabel={
-            <span className="btn btn-circle text-xl font-bold text-primary w-14 h-14">
-              <Icon icon={faArrowRight} />
+            <span className="btn btn-ghost btn-circle text-primary transition-all duration-300 hover:bg-primary/10">
+              <Icon icon={faArrowRight} className="h-4" />
             </span>
           }
           prevLabel={
-            <span className="btn btn-circle text-xl font-bold text-primary w-14 h-14">
-              <Icon icon={faArrowLeft} />
+            <span className="btn btn-ghost btn-circle text-primary transition-all duration-300 hover:bg-primary/10">
+              <Icon icon={faArrowLeft} className="h-4" />
             </span>
           }
           navigationLabel={({ label }) => (
-            <div className="w-40 text-md text-center">{label}</div>
+            <div className="w-40 text-sm text-center font-semibold text-base-content/80">{label}</div>
           )}
         />
       </div>
-      <div className="flex justify-end p-2 gap-4">
+      <div className="flex justify-end p-3 gap-2">
         <button
-          className={`btn btn-sm btn-${isDoubleView ? "neutral" : "link"}`}
+          className={`btn btn-sm rounded-xl gap-2 transition-all duration-300 ${isDoubleView ? "btn-primary shadow-md shadow-primary/20" : "btn-ghost"}`}
           onClick={() => setIsDoubleView((prev) => !prev)}
         >
-          <Icon icon={faCalendar} className="h-4 mr-2" />
+          <Icon icon={faCalendar} className="h-3.5" />
           {t("dashboard.double")}
         </button>
 
         <button
-          className={`btn btn-sm btn-${isMap ? "neutral" : "link"}`}
+          className={`btn btn-sm rounded-xl gap-2 transition-all duration-300 ${isMap ? "btn-primary shadow-md shadow-primary/20" : "btn-ghost"}`}
           onClick={() => setIsMap((prev) => !prev)}
         >
-          <Icon icon={faMapLocationDot} className="h-4 mr-2" />
+          <Icon icon={faMapLocationDot} className="h-3.5" />
           {t("dashboard.map")}
         </button>
       </div>

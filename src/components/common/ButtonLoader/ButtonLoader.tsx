@@ -24,7 +24,7 @@ const ButtonLoader = ({
   return (
     <button
       disabled={disabled}
-      className={clsx("btn", className)}
+      className={clsx("btn rounded-xl transition-all duration-300 active:scale-95", className)}
       type={type}
       onClick={onClick}
     >

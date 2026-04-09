@@ -67,12 +67,12 @@ const DialogContextProvider = ({ children }: PropsWithChildren) => {
           title={<Icon icon={dialogIcons[dialogType]} />}
           actions={
             <div className="flex justify-end gap-2">
-              <button className="btn btn-neutral" onClick={closeDialog}>
+              <button className="btn btn-ghost btn-sm rounded-xl" onClick={closeDialog}>
                 {dialogConfig.cancelText}
               </button>
               {(dialogType === "confirm" || dialogType === "delete") && (
                 <button
-                  className="btn btn-primary"
+                  className="btn btn-primary btn-sm rounded-xl shadow-md shadow-primary/20 transition-all duration-300 active:scale-95"
                   onClick={() => {
                     dialogConfig.onConfirm();
                     closeDialog();
@@ -85,8 +85,8 @@ const DialogContextProvider = ({ children }: PropsWithChildren) => {
           }
           onClose={closeDialog}
         >
-          <div className="container m-2 min-w-72">{dialogConfig.content}</div>
-          <div className="divider divider-primary mb-0" />
+          <div className="container m-2 min-w-72 text-sm text-base-content/80">{dialogConfig.content}</div>
+          <div className="divider divider-primary mb-0 opacity-40" />
         </Modal>
       )}
       {children}

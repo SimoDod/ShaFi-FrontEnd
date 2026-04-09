@@ -35,26 +35,26 @@ const ExpensesStats = () => {
   }, [openNotification]);
 
   return isLoading ? (
-    <span className="loading loading-dots loading-lg" />
+    <span className="loading loading-dots loading-lg text-primary" />
   ) : (
-    <div className="stats stats-vertical shadow w-screen">
-      <div className="stat">
-        <div className="stat-title text-success mb-2">{t("common.income")}</div>
-        <div className="stat-value">
+    <div className="w-full max-w-sm space-y-3 py-2">
+      <div className="glass-card rounded-xl p-4 hover-lift">
+        <div className="text-xs font-semibold uppercase tracking-wider text-success/80 mb-1">{t("common.income")}</div>
+        <div className="text-2xl font-bold tabular-nums">
           {balance?.totalPaidReservations.toFixed(2)}
         </div>
       </div>
-      <div className="stat">
-        <div className="stat-title text-error mb-2">{t("common.expense")}</div>
-        <div className="stat-value">
+      <div className="glass-card rounded-xl p-4 hover-lift">
+        <div className="text-xs font-semibold uppercase tracking-wider text-error/80 mb-1">{t("common.expense")}</div>
+        <div className="text-2xl font-bold tabular-nums">
           {balance?.totalLedgerBalance.toFixed(2)}
         </div>
       </div>
-      <div className="stat">
-        <div className="stat-title text-primary mb-2">
+      <div className="glass-card rounded-xl p-4 hover-lift">
+        <div className="text-xs font-semibold uppercase tracking-wider text-primary/80 mb-1">
           {t("common.balance")}
         </div>
-        <div className="stat-value">{balance?.totalBalance.toFixed(2)}</div>
+        <div className="text-2xl font-bold tabular-nums">{balance?.totalBalance.toFixed(2)}</div>
       </div>
     </div>
   );

@@ -27,14 +27,14 @@ const FormikField = ({
   return (
     <div className={`form-control ${className}`}>
       {label && (
-        <label className="label">
-          <span className="label-text text-base">{label}</span>
+        <label className="label pb-1">
+          <span className="label-text text-sm font-medium text-base-content/70">{label}</span>
         </label>
       )}
       <Field
         as={as}
         name={name}
-        className={`${as} ${as}-bordered focus:border-primary disabled:text-primary`}
+        className={`${as} ${as}-bordered rounded-xl bg-base-200/30 border-base-content/10 focus:border-primary focus:bg-base-100 transition-all duration-200 disabled:text-primary`}
         type={type}
         disabled={disabled}
         placeholder={placeholder}
@@ -45,7 +45,7 @@ const FormikField = ({
         <ErrorMessage
           name={name}
           component="div"
-          className="text-red-400 text-xs"
+          className="text-error/80 text-xs mt-1 ml-1"
         />
       )}
     </div>

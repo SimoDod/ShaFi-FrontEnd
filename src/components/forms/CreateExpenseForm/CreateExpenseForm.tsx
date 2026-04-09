@@ -44,7 +44,7 @@ const CreateExpenseForm = ({ isLoading = false, ledgerId }: Props) => {
       })}
     >
       {({ isValid }) => (
-        <Form className="flex flex-nowrap gap-2 justify-center mt-4">
+        <Form className="flex flex-nowrap gap-2 justify-center items-end mt-4">
           <FormikField
             className="w-6/12"
             name="title"
@@ -58,7 +58,7 @@ const CreateExpenseForm = ({ isLoading = false, ledgerId }: Props) => {
             error={false}
           />
           <ButtonLoader
-            className="btn-primary w-2/12"
+            className="btn-primary w-2/12 shadow-md shadow-primary/20"
             type="submit"
             icon={faPlusCircle}
             disabled={!isValid || isLoading}

@@ -45,7 +45,7 @@ const CreateLedgerForm = ({ isLoading = false, onSubmit }: Props) => {
           </div>
           <ButtonLoader
             type="submit"
-            className={"btn-primary mt-4 w-full"}
+            className="btn-primary mt-4 w-full shadow-md shadow-primary/20"
             disabled={!isValid || !dirty || isLoading}
             isLoading={isLoading}
           >

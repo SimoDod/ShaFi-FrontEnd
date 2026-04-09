@@ -10,47 +10,47 @@ const SettingsPanel = ({ handleClose }: { handleClose: () => void }) => {
   const logout = useLogout();
 
   return (
-    <div className="w-full p-4 bg-base-200 rounded-lg shadow-lg">
-      <div className="space-y-6">
-        <div>
-          <label className="label">
-            <span className="label-text">{t("settings.selectTheme")}</span>
-          </label>
-          <ThemeSelect />
-        </div>
-        <div className="bg-base-100 pb-3 pl-3 rounded-md">
-          <label className="label">
-            <span className="label-text">{t("settings.selectLanguage")}</span>
-          </label>
-          <LanguageSwitcher />
-        </div>
-        <div className="bg-base-100 p-4 rounded-md">
-          <h3 className="text-lg font-semibold">{t("settings.userInfo")}</h3>
-          <div className="divider divider-primary m-0" />
-          <div className="space-y-2">
-            <div>
-              <span className="font-medium">{t("common.name")}:</span>{" "}
-              {username}
-            </div>
-            <div>
-              <span className="font-medium">{t("common.email")}:</span> {email}
-            </div>
-            <div>
-              <span className="font-medium">{t("common.role")}:</span> {role}
-            </div>
+    <div className="w-full space-y-5">
+      <div>
+        <label className="label pb-1">
+          <span className="text-xs font-semibold uppercase tracking-wider text-base-content/50">{t("settings.selectTheme")}</span>
+        </label>
+        <ThemeSelect />
+      </div>
+      <div className="bg-base-200/30 p-4 rounded-xl">
+        <label className="label pb-2">
+          <span className="text-xs font-semibold uppercase tracking-wider text-base-content/50">{t("settings.selectLanguage")}</span>
+        </label>
+        <LanguageSwitcher />
+      </div>
+      <div className="bg-base-200/30 p-4 rounded-xl">
+        <h3 className="text-sm font-semibold text-base-content/80 mb-3">{t("settings.userInfo")}</h3>
+        <div className="divider divider-primary mt-0 mb-3 opacity-50" />
+        <div className="space-y-2 text-sm">
+          <div className="flex items-center gap-2">
+            <span className="font-medium text-base-content/50 min-w-16">{t("common.name")}:</span>
+            <span className="font-medium">{username}</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="font-medium text-base-content/50 min-w-16">{t("common.email")}:</span>
+            <span className="font-medium">{email}</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="font-medium text-base-content/50 min-w-16">{t("common.role")}:</span>
+            <span className="font-medium">{role}</span>
           </div>
         </div>
-        <div className="flex justify-end">
-          <button
-            className="btn btn-error"
-            onClick={() => {
-              handleClose();
-              logout();
-            }}
-          >
-            {t("buttons.logout")}
-          </button>
-        </div>
+      </div>
+      <div className="flex justify-end pt-2">
+        <button
+          className="btn btn-error btn-sm rounded-xl gap-2 transition-all duration-300 active:scale-95"
+          onClick={() => {
+            handleClose();
+            logout();
+          }}
+        >
+          {t("buttons.logout")}
+        </button>
       </div>
     </div>
   );

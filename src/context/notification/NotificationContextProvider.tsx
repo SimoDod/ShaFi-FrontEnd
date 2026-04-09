@@ -82,7 +82,7 @@ const NotificationContextProvider = ({ children }: PropsWithChildren) => {
       >
         <div
           role="alert"
-          className={`alert alert-${type} fixed right-4 top-4 z-50 max-w-80`}
+          className={`alert alert-${type} fixed right-4 top-4 z-50 max-w-80 rounded-xl shadow-lg border-0 backdrop-blur-xl animate-slide-up`}
         >
           <Icon icon={notificationIcons[type]} />
           <span>{message}</span>

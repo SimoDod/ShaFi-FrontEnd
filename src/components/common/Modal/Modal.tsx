@@ -20,21 +20,21 @@ const Modal = ({
   createPortal(
     <div className={`modal modal-open z-40 ${!centered && "items-start"}`}>
       <div
-        className={`modal-box pt-0 bg-opacity-75 backdrop-blur xxs:w-[98%] xxxs:w-[98%] ${!centered && "mt-10"}`}
+        className={`modal-box pt-0 glass-card-strong rounded-2xl xxs:w-[98%] xxxs:w-[98%] ${!centered && "mt-10"} animate-scale-in`}
       >
-        <div className="flex sticky top-3 z-10 bg-base-100 bg-opacity-55 backdrop-blur justify-between items-center h-8 py-4 px-3 w-full rounded-xl">
-          <h3 className="font-bold text">{title}</h3>
-          <button onClick={onClose} className="btn btn-link pt-4 pr-0 items-start">
-            <Icon
-              icon={faX}
-              className="text-primary h-4 ml-4 hover:text-secondary"
-            />
+        <div className="flex sticky top-0 z-10 glass-surface rounded-xl justify-between items-center py-3 px-4 -mx-2 mt-2">
+          <h3 className="font-semibold text-base-content/90 tracking-tight">{title}</h3>
+          <button
+            onClick={onClose}
+            className="btn btn-ghost btn-sm btn-circle transition-all duration-300 hover:bg-error/10 hover:text-error"
+          >
+            <Icon icon={faX} className="h-3" />
           </button>
         </div>
         <div className="modal-content mt-4">{children}</div>
-        <div className="modal-actions mt-4">{actions}</div>
+        {actions && <div className="modal-actions mt-4">{actions}</div>}
       </div>
-      <div className="modal-backdrop" onClick={onClose} />
+      <div className="modal-backdrop bg-black/40 backdrop-blur-sm" onClick={onClose} />
     </div>,
     document.body
   );

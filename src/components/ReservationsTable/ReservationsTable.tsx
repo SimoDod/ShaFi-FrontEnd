@@ -28,21 +28,22 @@ const ReservationsTable = ({ reservations }: Props) => {
   const { t } = useTranslation();
 
   return (
-    <div className="overflow-x-auto">
-      <table className="table table-zebra bg-base-300 bg-opacity-85 backdrop-blur">
+    <div className="overflow-x-auto rounded-xl">
+      <table className="table glass-surface">
         <thead>
-          <tr>
-            <th className="text text-primary">{t("common.note")}</th>
-            <th className="text text-primary text-center">{t("common.reserved")}</th>
-            <th className="text text-primary text-center">{t("common.paid")}</th>
+          <tr className="border-b border-base-content/5">
+            <th className="text-xs font-semibold uppercase tracking-wider text-primary/80">{t("common.note")}</th>
+            <th className="text-xs font-semibold uppercase tracking-wider text-primary/80 text-center">{t("common.reserved")}</th>
+            <th className="text-xs font-semibold uppercase tracking-wider text-primary/80 text-center">{t("common.paid")}</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           {reservations.length === 0 ? (
             <tr>
-              <td colSpan={100} className="text-center py-10">
-                <div className="flex items-center justify-center">
-                  <Icon icon={faBoxOpen} className="h-16" />
+              <td colSpan={100} className="text-center py-16">
+                <div className="flex flex-col items-center justify-center gap-2 text-base-content/30">
+                  <Icon icon={faBoxOpen} className="h-12" />
                 </div>
               </td>
             </tr>
@@ -54,31 +55,31 @@ const ReservationsTable = ({ reservations }: Props) => {
                 paid,
                 _id,
               }) => (
-                <tr key={_id}>
-                  <td>{note}</td>
+                <tr key={_id} className="border-b border-base-content/5 transition-colors duration-200 hover:bg-base-200/30">
+                  <td className="text-sm font-medium">{note}</td>
                   <td className="text-center w-10">
-                    <div>
+                    <div className="text-sm text-base-content/70">
                       {format(
                         parseISO(reservationStart),
                         dateFormats.defaultSlash
                       )}
                     </div>
-                    <div className="divider divider-primary m-0 " />
-                    <div>
+                    <div className="divider divider-primary m-0 opacity-50" />
+                    <div className="text-sm text-base-content/70">
                       {format(
                         parseISO(reservationEnd),
                         dateFormats.defaultSlash
                       )}
                     </div>
                   </td>
-                  <td className="text-center w-10">{paid}</td>
+                  <td className="text-center w-10 text-sm font-medium tabular-nums">{paid}</td>
                   <td className="text-center px-2 w-10">
                     <Menu as="div" className="relative inline-block text-left">
-                      <MenuButton className="btn btn-sm btn-ghost">
+                      <MenuButton className="btn btn-sm btn-ghost btn-circle transition-all duration-300 hover:bg-base-200/60">
                         <Icon icon={faEllipsisVertical} className="h-4" />
                       </MenuButton>
 
-                      <MenuItems className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-base-100 shadow-lg ring-1 ring-black/5 focus:outline-none">
+                      <MenuItems className="absolute right-0 z-10 mt-1 w-36 origin-top-right glass-card-strong rounded-xl p-1">
                         <MenuItem
                           as="button"
                           onClick={() =>
@@ -86,9 +87,9 @@ const ReservationsTable = ({ reservations }: Props) => {
                               `${routePaths.reservations.path}${year}/${_id}`
                             )
                           }
-                          className="ui-active:bg-primary ui-active:text-primary-content text-sm text-base-content w-full px-4 py-2 text-left flex items-center gap-2 rounded"
+                          className="ui-active:bg-primary/10 text-sm text-base-content w-full px-3 py-2 text-left flex items-center gap-2 rounded-lg transition-colors duration-200"
                         >
-                          <Icon icon={faEdit} className="h-4" />
+                          <Icon icon={faEdit} className="h-3.5" />
                           {t("buttons.edit")}
                         </MenuItem>
 
@@ -100,9 +101,9 @@ const ReservationsTable = ({ reservations }: Props) => {
                                 dispatch(deleteReservationThunk(_id)),
                             })
                           }
-                          className="text-error ui-active:bg-error ui-active:text-error-content text-sm w-full px-4 py-2 text-left flex items-center gap-2 rounded"
+                          className="text-error ui-active:bg-error/10 text-sm w-full px-3 py-2 text-left flex items-center gap-2 rounded-lg transition-colors duration-200"
                         >
-                          <Icon icon={faTrashCan} className="h-4 text-error" />
+                          <Icon icon={faTrashCan} className="h-3.5" />
                           {t("buttons.delete")}
                         </MenuItem>
                       </MenuItems>

@@ -43,7 +43,7 @@ const Dropdown = ({
         {icon && <Icon icon={icon} />}
         {name && name}
       </summary>
-      <ul className="menu menu-sm dropdown-content bg-base-200 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+      <ul className="menu menu-sm dropdown-content glass-card-strong rounded-xl z-[1] mt-2 w-52 p-1.5 shadow-lg">
         {Children.map(children, (child, index) => (
           <li key={index}>{child}</li>
         ))}

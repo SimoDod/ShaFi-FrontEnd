@@ -1,8 +1,81 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-  
+
 :root:has(:is(.modal-open, .modal:target, .modal-toggle:checked + .modal, .modal[open])) {
-    scrollbar-gutter: auto;
+  scrollbar-gutter: auto;
+}
+
+/* ── Modern Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 9999px;
+  background: oklch(var(--p) / 0.25);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(var(--p) / 0.45);
+}
+
+/* ── Global Smoothness ── */
+* {
+  scroll-behavior: smooth;
+}
+
+/* ── Glass utility ── */
+@layer utilities {
+  .glass-card {
+    @apply bg-base-100/60 backdrop-blur-xl border border-base-content/5 shadow-lg;
+  }
+  .glass-card-strong {
+    @apply bg-base-100/80 backdrop-blur-2xl border border-base-content/10 shadow-xl;
+  }
+  .glass-surface {
+    @apply bg-base-100/50 backdrop-blur-md;
+  }
+  .hover-lift {
+    @apply transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl;
+  }
+  .hover-glow {
+    @apply transition-all duration-300 ease-out hover:shadow-lg hover:shadow-primary/10;
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out;
+  }
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ── Better focus rings ── */
+:focus-visible {
+  outline: 2px solid oklch(var(--p) / 0.5);
+  outline-offset: 2px;
+}
+
+/* ── Section transitions ── */
+.page-enter {
+  animation: slideUp 0.35s ease-out;
 }
 

@@ -21,14 +21,15 @@ const ErrorFallback = ({
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-base-100">
-      <div className="mockup-window border-base-300 border w-11/12 sm:w-96 mb-60">
-        <div className="border-base-300 flex justify-center border-t px-6 py-16">
-          <h1 className="text-xl font-bold text-error text-center">
-            {t(`errorPage.${errorMessage}`)}
-          </h1>
-        </div>
-        <button className="btn btn-primary mt-6" onClick={handleErrorReset}>
+    <div className="flex flex-col items-center justify-center min-h-screen">
+      <div className="glass-card-strong rounded-2xl w-11/12 sm:w-96 p-8 text-center animate-scale-in">
+        <h1 className="text-xl font-bold text-error mb-6">
+          {t(`errorPage.${errorMessage}`)}
+        </h1>
+        <button
+          className="btn btn-primary rounded-xl shadow-md shadow-primary/20 transition-all duration-300 active:scale-95"
+          onClick={handleErrorReset}
+        >
           {t("buttons.backButton")}
         </button>
       </div>

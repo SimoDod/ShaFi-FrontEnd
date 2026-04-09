@@ -6,9 +6,6 @@ type Props = {
   extra?: ReactNode;
   contentClass?: string;
   headingGap?: number;
-  opacity?: string;
-  background?: "transparent" | "primary" | "secondary" | "base-100";
-  blur?: boolean;
 } & PropsWithChildren;
 
 const WindowCard = ({
@@ -18,23 +15,18 @@ const WindowCard = ({
   children,
   contentClass,
   headingGap = 4,
-  opacity = "100",
-  background = "transparent",
-  blur = false,
 }: Props) => {
   return (
-    <div
-      className={`mockup-window bg-${background} mb-8 mt-4 overflow-auto bg-opacity-${opacity} ${blur ? "backdrop-blur" : ""}`}
-    >
+    <div className="glass-card rounded-2xl mb-8 mt-4 overflow-auto">
       <div
-        className={`flex justify-between items-center flex-wrap pl-4 pr-4 mb-${headingGap}`}
+        className={`flex justify-between items-center flex-wrap px-5 pt-5 mb-${headingGap}`}
       >
         <div>{heading}</div>
         <div>{extra}</div>
       </div>
       {isLoading ? (
-        <div className="flex items-center justify-center">
-          <span className="loading loading-bars loading-lg mt-52 mb-40" />
+        <div className="flex items-center justify-center py-32">
+          <span className="loading loading-bars loading-lg text-primary" />
         </div>
       ) : (
         <div className={contentClass}>{children}</div>

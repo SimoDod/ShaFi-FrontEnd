@@ -39,57 +39,60 @@ const NavigationBar = () => {
         </Modal>
       )}
 
-      <div className="navbar sticky top-0 bg-base-100 bg-opacity-60 backdrop-blur shadow-md px-4 py-0 z-50">
-        <div className="text-2xl font-bold navbar-start">
-          <button
-            className="mr-4"
-            onClick={() =>
-              authToken
-                ? setIsOpen(ModalMode.STATS)
-                : navigate(routePaths.login.path)
-            }
-          >
-            Sunny<span className="text-primary">Alfa</span>
-          </button>
-        </div>
+      <nav className="sticky top-0 z-50 glass-card-strong border-b border-base-content/5">
+        <div className="navbar px-4 py-1 max-w-screen-2xl mx-auto">
+          <div className="navbar-start">
+            <button
+              className="text-2xl font-bold tracking-tight transition-all duration-300 hover:opacity-80 active:scale-95"
+              onClick={() =>
+                authToken
+                  ? setIsOpen(ModalMode.STATS)
+                  : navigate(routePaths.login.path)
+              }
+            >
+              Sunny<span className="text-primary">Alfa</span>
+            </button>
+          </div>
 
-        <div className="navbar-center">
-          {authToken ? (
-            <ul className="menu menu-horizontal gap-2">
-              {navItems.map(({ icon, label, onClick, isActive }) => (
-                <li key={label}>
+          <div className="navbar-center">
+            {authToken ? (
+              <div className="flex items-center gap-1 p-1 rounded-2xl bg-base-200/50 backdrop-blur-sm">
+                {navItems.map(({ icon, label, onClick, isActive }) => (
                   <button
+                    key={label}
                     onClick={onClick}
                     className={`
-              btn btn-circle transition-colors
-              ${isActive ? "bg-primary text-base-100" : "bg-base-200 text-base-content"}
-              hover:bg-secondary hover:text-base-100
-              tooltip tooltip-bottom
-            `}
-                    data-tip={label}
+                      btn btn-sm btn-ghost rounded-xl gap-2 transition-all duration-300
+                      ${isActive
+                        ? "bg-primary text-primary-content shadow-md shadow-primary/20"
+                        : "hover:bg-base-300/60"
+                      }
+                    `}
+                    title={label}
                   >
-                    <Icon icon={icon} className="size-4" />
+                    <Icon icon={icon} className="size-3.5" />
+                    <span className="hidden sm:inline text-xs font-medium">{label}</span>
                   </button>
-                </li>
-              ))}
-            </ul>
-          ) : null}
-        </div>
+                ))}
+              </div>
+            ) : null}
+          </div>
 
-        <div className="navbar-end gap-2">
-          {!authToken && <ThemeSelect />}
-          {authToken ? (
-            <button
-              onClick={() => setIsOpen(ModalMode.SETTINGS)}
-              className="btn btn-sm btn-ghost"
-            >
-              <Icon icon={faGear} />
-            </button>
-          ) : (
-            <LanguageSwitcher />
-          )}
+          <div className="navbar-end gap-1">
+            {!authToken && <ThemeSelect />}
+            {authToken ? (
+              <button
+                onClick={() => setIsOpen(ModalMode.SETTINGS)}
+                className="btn btn-sm btn-ghost btn-circle transition-all duration-300 hover:bg-base-200/60 hover:rotate-45"
+              >
+                <Icon icon={faGear} className="size-4" />
+              </button>
+            ) : (
+              <LanguageSwitcher />
+            )}
+          </div>
         </div>
-      </div>
+      </nav>
     </>
   );
 };

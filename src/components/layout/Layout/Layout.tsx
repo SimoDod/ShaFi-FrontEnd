@@ -14,17 +14,9 @@ const Layout = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <NavigationBar />
-      <div className="flex-grow">
+      <main className="flex-grow animate-fade-in">
         <Outlet />
-      </div>
-      {/*       <footer className="footer footer-center bg-base-300 text-base-content p-3 mt-auto">
-        <aside>
-          <p>
-            Copyright © {new Date().getFullYear()} - All right reserved by
-            Simeon Dodov
-          </p>
-        </aside>
-      </footer> */}
+      </main>
     </div>
   );
 };

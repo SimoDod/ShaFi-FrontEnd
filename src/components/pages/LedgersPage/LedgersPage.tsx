@@ -73,11 +73,11 @@ const LedgersPage = () => {
           />
         </Modal>
       )}
-      <div className="mx-2 lg:px-36 xl:px-60 2xl:px-96 3xl:px-[500px] 4xl:px-[600px]">
+      <div className="mx-auto px-4 max-w-screen-lg animate-slide-up">
         <WindowCard
-          contentClass="flex flex-wrap justify-evenly gap-2 pb-6"
+          contentClass="flex flex-wrap justify-evenly gap-3 pb-6"
           heading={
-            <h2 className="text text-2xl text-base-300">
+            <h2 className="text-2xl font-semibold text-base-content/80 tracking-tight">
               {t("ledgersPage.ledgers")}
             </h2>
           }

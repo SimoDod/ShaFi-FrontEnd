@@ -34,35 +34,39 @@ const DashboardPage = () => {
   return (
     <div className="min-h-screen">
       <NavigationBar />
-      <div className="flex flex-wrap justify-between gap-6 px-2 mx-auto max-w-screen-xl">
+      <div className="flex flex-wrap justify-between gap-8 px-4 py-6 mx-auto max-w-screen-xl animate-slide-up">
         {/* Left Column */}
-        <div className="flex flex-col items-center w-full lg:w-[55%] min-w-[300px]">
+        <div className="flex flex-col items-center gap-6 w-full lg:w-[55%] min-w-[300px]">
           {!error && <InfoCalendar reservedDates={reservedDates} />}
           <ImageCarousel />
         </div>
 
         {/* Right Column */}
-        <div className="flex flex-wrap justify-center gap-6 w-full my-4 lg:w-[40%] min-w-[300px]">
-          <div className="w-full max-w-[420px] flex flex-col gap-6">
+        <div className="flex flex-wrap justify-center w-full my-4 lg:w-[40%] min-w-[300px]">
+          <div className="w-full max-w-[420px] flex flex-col gap-5">
             <InfoCard
               title={t("dashboard.location.title")}
               description={t("dashboard.location.text")}
               icon={faMapMarkerAlt}
+              delay={0}
             />
             <InfoCard
               title={t("dashboard.convenience.title")}
               description={t("dashboard.convenience.text")}
               icon={faCheckCircle}
+              delay={1}
             />
             <InfoCard
               title={t("dashboard.kitchenware.title")}
               description={t("dashboard.kitchenware.text")}
               icon={faUtensils}
+              delay={2}
             />
             <InfoCard
               title={t("dashboard.comfort.title")}
               description={t("dashboard.comfort.text")}
               icon={faCouch}
+              delay={3}
             />
           </div>
         </div>

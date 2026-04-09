@@ -5,14 +5,12 @@ import { useTranslation } from "react-i18next";
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
 
-  console.log(i18n);
-  
-
   return (
-    <div className="join">
+    <div className="flex items-center gap-0.5 p-1 rounded-xl bg-base-200/50 backdrop-blur-sm">
       {languages.map(({ shortName }) => (
         <input
-          className="join-item btn"
+          key={shortName}
+          className="join-item btn btn-sm rounded-lg transition-all duration-300"
           type="radio"
           name="options"
           aria-label={shortName.toUpperCase()}
