@@ -54,7 +54,7 @@ const NavigationBar = () => {
             </button>
           </div>
 
-          <div className="navbar-center">
+          <div className="navbar-center hidden sm:flex">
             {authToken ? (
               <div className="flex items-center gap-1 p-1 rounded-2xl bg-base-200/50 backdrop-blur-sm">
                 {navItems.map(({ icon, label, onClick, isActive }) => (
@@ -65,13 +65,37 @@ const NavigationBar = () => {
                       btn btn-sm btn-ghost rounded-xl gap-2 transition-all duration-300
                       ${isActive
                         ? "bg-primary text-primary-content shadow-md shadow-primary/20"
-                        : "hover:bg-base-300/60"
+                        : "hover:bg-base-200"
                       }
                     `}
                     title={label}
                   >
                     <Icon icon={icon} className="size-3.5" />
-                    <span className="hidden sm:inline text-xs font-medium">{label}</span>
+                    <span className="text-xs font-medium">{label}</span>
+                  </button>
+                ))}
+              </div>
+            ) : null}
+          </div>
+
+          {/* Mobile nav */}
+          <div className="navbar-center flex sm:hidden">
+            {authToken ? (
+              <div className="flex items-center gap-0.5 p-0.5 rounded-xl bg-base-200/50 backdrop-blur-sm">
+                {navItems.map(({ icon, onClick, isActive, label }) => (
+                  <button
+                    key={label}
+                    onClick={onClick}
+                    className={`
+                      btn btn-xs btn-ghost btn-circle transition-all duration-300
+                      ${isActive
+                        ? "bg-primary text-primary-content shadow-sm shadow-primary/20"
+                        : "hover:bg-base-200"
+                      }
+                    `}
+                    title={label}
+                  >
+                    <Icon icon={icon} className="size-3" />
                   </button>
                 ))}
               </div>
@@ -83,7 +107,7 @@ const NavigationBar = () => {
             {authToken ? (
               <button
                 onClick={() => setIsOpen(ModalMode.SETTINGS)}
-                className="btn btn-sm btn-ghost btn-circle transition-all duration-300 hover:bg-base-200/60 hover:rotate-45"
+                className="btn btn-sm btn-ghost btn-circle transition-all duration-300 hover:bg-base-200 hover:rotate-45"
               >
                 <Icon icon={faGear} className="size-4" />
               </button>

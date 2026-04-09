@@ -15,7 +15,7 @@ const Pagination = ({
 }: Props) => (
   <div className="flex items-center gap-1 p-1 rounded-xl bg-base-200/50 backdrop-blur-sm">
     <button
-      className="btn btn-sm btn-ghost rounded-lg transition-all duration-300 hover:bg-primary hover:text-primary-content active:scale-95"
+      className="btn btn-sm btn-ghost rounded-lg transition-all duration-300 hover:bg-base-200 active:scale-95"
       onClick={previousPage}
     >
       «
@@ -24,7 +24,7 @@ const Pagination = ({
       {currentPage}{mode === "total" && ` / ${totalPages}`}
     </span>
     <button
-      className="btn btn-sm btn-ghost rounded-lg transition-all duration-300 hover:bg-primary hover:text-primary-content active:scale-95"
+      className="btn btn-sm btn-ghost rounded-lg transition-all duration-300 hover:bg-base-200 active:scale-95"
       onClick={nextPage}
     >
       »

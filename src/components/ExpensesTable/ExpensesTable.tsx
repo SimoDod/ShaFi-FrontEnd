@@ -34,7 +34,7 @@ const ExpensesTable = ({ expenses = [], ledgerId }: Props) => {
             <tr key={_id} className="border-b border-base-content/5 transition-colors duration-200 hover:bg-base-200/30">
               <td className="text-sm text-base-content/70">{format(date, dateFormats.defaultSlash)}</td>
               <td className="text-sm font-medium">{title}</td>
-              <td className="text-sm tabular-nums font-medium">{amount}</td>
+              <td className="text-sm tabular-nums font-medium">{Number(amount).toFixed(2)}</td>
               <td>
                 <button
                   className="btn btn-ghost btn-sm btn-circle transition-all duration-300 hover:bg-error/10 hover:text-error"

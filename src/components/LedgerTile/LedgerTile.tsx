@@ -16,6 +16,8 @@ const LedgerTile = ({ title, total, id, color = "accent", onClick }: Props) => {
   const dispatch = useAppDispatch();
   const openDialog = useDialog();
 
+  const formattedTotal = typeof total === "number" ? total.toFixed(2) : Number(total).toFixed(2);
+
   return (
     <LedgerTileWrapper
       onClick={onClick}
@@ -31,7 +33,7 @@ const LedgerTile = ({ title, total, id, color = "accent", onClick }: Props) => {
 
       <div className="w-full">
         <div className={`divider divider-${color} text-lg my-0`} />
-        <div className="text-lg font-medium tabular-nums">{total}</div>
+        <div className="text-lg font-medium tabular-nums">{formattedTotal}</div>
       </div>
     </LedgerTileWrapper>
   );

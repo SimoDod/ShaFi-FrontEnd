@@ -9,7 +9,7 @@ const ThemeSelect = () => {
 
   return (
     <Menu as="div" className="relative z-50">
-      <MenuButton className="btn btn-sm btn-ghost btn-circle transition-all duration-300 hover:bg-base-200/60">
+      <MenuButton className="btn btn-sm btn-ghost btn-circle transition-all duration-300 hover:bg-base-200">
         <Icon icon={faPaintBrush} className="size-3.5" />
       </MenuButton>
 
@@ -18,7 +18,7 @@ const ThemeSelect = () => {
           <MenuItem key={theme} as="div">
             <button
               onClick={() => setTheme(theme)}
-              className="w-full text-left px-3 py-2 rounded-lg transition-colors duration-200 hover:bg-base-200/60 data-[headlessui-state=active]:bg-base-200/60"
+              className="w-full text-left px-3 py-2 rounded-lg transition-colors duration-200 hover:bg-base-200 data-[headlessui-state=active]:bg-base-200"
             >
               <div className="flex items-center gap-2" data-theme={theme}>
                 <span className="w-2.5 h-2.5 rounded-full bg-primary ring-1 ring-black/5"></span>

@@ -72,10 +72,10 @@ const ReservationsTable = ({ reservations }: Props) => {
                       )}
                     </div>
                   </td>
-                  <td className="text-center w-10 text-sm font-medium tabular-nums">{paid}</td>
+                  <td className="text-center w-10 text-sm font-medium tabular-nums">{Number(paid).toFixed(2)}</td>
                   <td className="text-center px-2 w-10">
                     <Menu as="div" className="relative inline-block text-left">
-                      <MenuButton className="btn btn-sm btn-ghost btn-circle transition-all duration-300 hover:bg-base-200/60">
+                      <MenuButton className="btn btn-sm btn-ghost btn-circle transition-all duration-300 hover:bg-base-200">
                         <Icon icon={faEllipsisVertical} className="h-4" />
                       </MenuButton>
 

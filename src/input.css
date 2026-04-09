@@ -42,7 +42,7 @@
     @apply transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl;
   }
   .hover-glow {
-    @apply transition-all duration-300 ease-out hover:shadow-lg hover:shadow-primary/10;
+    @apply transition-all duration-300 ease-out hover:shadow-lg hover:shadow-base-content/5;
   }
   .animate-fade-in {
     animation: fadeIn 0.4s ease-out;
